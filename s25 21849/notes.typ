@@ -23,7 +23,7 @@
 #pagebreak()
 #counter(page).update(1)
 
-= 
+= Introduction
 === Administrivia
 - Grade consists of two takehomes and one presentation/paper.
 - Exercise List/Notes: Canvas
@@ -60,6 +60,62 @@ Here are more cool things about algebraic geometry:
 
 
 
+= Affine algebraic sets
+== Nullstellensatz
+Notation: $bb(k)$ is an algebraically closed field $(bb(k) = CC)$.
 
-= Chapter 2
-== Section 2
+#definition[Affine space][
+  An $n$-affine space $bb(A)^n_bb(k)$ is the set $
+  {(a_1, dots, a_n) | a_i in bb(k)\, forall i = 1, dots, n} = bb(k)^n.
+  $
+  An affine algebraic subset of $bb(A)^n$ is a subset $Z subset.eq bb(A)^n$ such that
+  $
+    Z = {(a_1, dots, a_n) in bb(A)^n | f(a_1, dots, a_n) = 0, forall f in T}
+  $ 
+  for some subset $T subset.eq bb(k)[x_1, dots, x_n]$. We write $Z = V(T)$.
+]
+
+#example[An affine space][
+  - $V(x^2 - y) subset bb(A)^2$. This is a parabola.
+  - $V(x^2 + y^2) subset bb(A)^2$. Note that $x^2 + y^2 = (x + i y)(x - i y)$, so this is two lines.
+  - $V(x^2 - y, x y - z) subset.eq bb(A)^3$. We actually have $V(x^2 - y, x y - z) = {(x, x^2, x^3) | x in bb(k)}$. Then note that if we project to any two dimensional plane $(x y, y z, x z)$, then we get another affine subset but on $bb(A)^2$.
+]
+This leads us to the following question:
+#question[
+  $X subset.eq bb(A)^n => pi(X) subset.eq bb(A)^{n - 1}$?
+]
+#solution[
+  Consider $V(1 - x y) subset.eq bb(A)^2$. If we project this to either axis, then we will miss the origin. 
+]
+
+#definition[Ideal][
+  Let $Z subset.eq bb(A)^n$ be an algebraic subset. Then 
+  $
+    I(Z) = {f in bb(k)[x] | f(p) = 0, forall p in Z}.
+  $
+]
+#example[
+  0. $Z = V(x^2) subset.eq bb(A)^2$, then $I(Z) = angle.l x angle.r$.
+  1. If $Z = V(x^2 - y)$, then $I(Z) = angle.l x^2 -y angle.r$
+  2. If $Z = V(x^2 - y, x y - z)$, then $I(Z) = angle.l x^2 - y, x y - z angle.r$.
+]
+
+#proposition[
+1. $I(Z)$ an ideal. $Z_1 subset.eq Z_2 => I(Z_1) supset.eq I(Z_2)$.
+2. $T subset.eq bb(k)[x]$. $V(T) = V(angle.l T angle.r)$ AND $V(T) = V(f_1, dots, f_m)$ for some $f_i$.
+3. For $frak(a) subset.eq bb(k)[x]$ ideal, $V(frak(a)) = V(sqrt(frak(a)))$, where $sqrt(frak(a)) = {f in bb(k)[x] | f^m in frak(a), exists m > 0}$.
+4. Algebraic subsets of $cal(A)^n$ are closed under finite unions and arbitrary intersections.
+]
+#proof[
+  We prove number 2 by using the Hilbert Basis Theorem. In particular, $bb(k)[x]$ is Noetherian. 
+]
+#theorem[Nullstellensatz][
+  Let $Z$ be an algebraic subset. Then $V(I(Z)) = Z$ and $I(V(frak(a))) = sqrt(frak(a))$. That is, 
+  $
+    {"algebraic subsets of" bb(A)^n} <-> {"radical ideals in" bb(k)[x]}.
+  $
+]
+
+#proof[
+  Finite type field extensions are finite, which implies that maximal ideals of $bb(k)[x]$ are of the form $angle.l x_1 - a_1, dots, x_n - a_n angle.r$ for $a_i in bb(k)$, using the fact that $bb(k)$ is algebraically closed.  
+]
