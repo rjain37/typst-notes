@@ -7,6 +7,7 @@
 #let red = rgb("#FFDBDD")
 #let black = rgb("#000000")
 #let gray = rgb("#a7a3a3")
+#let green = rgb("#c5e0c5")
 
 #let blue_stroke = rgb("#363699")
 #let green_stroke = rgb("#196214")
@@ -31,6 +32,14 @@
   "global",
   "Corollary",
   fill: red,
+  base_level: 1,
+  stroke: (left: black)
+)
+
+#let proposition = thmbox(
+  "global",
+  "Proposition",
+  fill: green,
   base_level: 1,
   stroke: (left: black)
 )
