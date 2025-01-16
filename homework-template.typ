@@ -11,7 +11,7 @@
 #set heading(numbering: "1.")
 #set enum(numbering: "1.a)")
 
-#import "preamble.typ" : *
+#import "../preamble.typ" : *
 #show: thmrules
 
 /////// START HERE ///////
