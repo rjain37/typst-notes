@@ -1,6 +1,12 @@
 #set heading(numbering: "1.")
 #set enum(numbering: "1.a)")
 
+#set page(margin: (
+  top: 3cm,
+  bottom: 2cm,
+  x: 1.5cm,
+))
+
 #import "@preview/ilm:1.4.0": *
 #import "../preamble.typ" : *
 #show: thmrules
@@ -117,5 +123,43 @@ This leads us to the following question:
 ]
 
 #proof[
-  Finite type field extensions are finite, which implies that maximal ideals of $bb(k)[x]$ are of the form $angle.l x_1 - a_1, dots, x_n - a_n angle.r$ for $a_i in bb(k)$, using the fact that $bb(k)$ is algebraically closed.  
+  1. Finite type field extensions $L supset.eq F$ are finite. Rember that finite type means that $F[x_1, dots, x_m] ->> L$. 
+  2. This implies that maximal ideals of $bb(k)[x]$ are of the form $angle.l x_1 - a_1, dots, x_n - a_n angle.r$ for $a_i in bb(k)$, using the fact that $bb(k)$ is algebraically closed. So, $k[x] slash frak(m) tilde.eq bb(k)$.
+  3. (Weak Nullstellensatz) $V(frak(a)) = emptyset <==> frak(a) = angle.l 1 angle.r$. That is, $frak(a) subset.neq k[x], exists frak(m) supset.eq frak(a)$.
+  4. So if $f in I(V(frak(a)))$, then consider $frak(a) + angle.l 1 - y f angle.r subset.eq k[x, y]$. So for any $(a_1, dots, a_n, b)$ that vanishes on $frak(a) + angle.l 1 - y  f angle.r$, we realize that since $1 - y f = 1$, we have a unit ideal. That is, we can say $1 = g_1 h_1 + g_2(1 - y f)$ for $h_1 in frak(a)$ and $g_1, g_2 in k[x, y]$. From here, we can conclude that $f^ell in frak(a)$ for some $ell$.
+
+  But also 
+  $
+    k[x, y] \/ angle.l 1 - y f angle.r tilde.eq k[x][1/f] = R.
+  $
+  So, 
+  $
+    1/1 = g_1 + g_2/f + g_3/f^2 + dots.c + g_ell/f^(ell-1)
+  $
+  for $g_i in "ideal" frak(a) "inside" R$.
+]
+Remark: We say $R$ is Jacobson if every radical ideal $= sect.big_(frak(m) supset.eq I) frak(m)$.
+#theorem[
+  $R$ Jacobson $=>$ $R[x]$ Jacobson.
+]
+#definition[Coordinate ring][
+  The coordinate ring $A(X)$ of $X subset.eq AA^n$ is $bb(k)[x] \/ I(X)$.
+  1. $X ->^f bb(k)$
+  2. $"maxSpec" A(X) = {"maximal ideals in" A(X)} = X$.
+]
+
+= Projective Spaces
+#definition[
+  $PP^n = (bb(k)^(n+1) without {0}) \/ tilde$. That is, $v tilde v'$ if $v = lambda v'$ for some $lambda in bb(k)$. That is, $PP^n = {"1-subspaces of" bb(k)^{n+1}}$. For $(a_0, dots, a_n) in k^(n+1) without {0}$, we write $[a_0:dots:a_n] in PP^n$.
+]
+Remark: $V tilde.eq bb(k)^(n+1)$. $PP V = V without {0} \/ tilde$
+#definition[
+  $f in bb(k)[x]$ is homogeneous if $f(lambda x_1, dots, lambda x_n) = lambda^ell f(x_1, dots, x_n)$.
+]
+#definition[
+  A projective algebraic set, $X subset.eq PP^n$ is 
+  $
+    V(T) = {[x_0: dots.c : x_n] | f(x) = 0, forall f in T}
+  $
+  for $T$ a set of homogeneous polynomials.
 ]
