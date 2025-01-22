@@ -1,6 +1,8 @@
 #set heading(numbering: "1.")
 #set enum(numbering: "1.a)")
 
+
+
 #set page(margin: (
   top: 3cm,
   bottom: 2cm,
@@ -12,7 +14,7 @@
 #show: thmrules
 
 #show: ilm.with(
-  title: [21-849: Algebraic Geometry I],
+  title: [21-849: Algebraic Geometry],
   author: "Rohan Jain",
   date: datetime(year: 2025, month: 01, day: 13),
   preface: [
@@ -23,6 +25,8 @@
   table-of-contents: none,
 )
 
+#set math.equation(numbering: none)
+
 #pagebreak()
 #toc
 #counter(page).update(1)
@@ -31,6 +35,7 @@
 
 = Introduction
 === Administrivia
+#let ux = $underline(x)$
 - Grade consists of two takehomes and one presentation/paper.
 - Exercise List/Notes: Canvas
 - Prerequisites: basic algebra, topology, and "multivariable calculus".
@@ -154,7 +159,7 @@ Remark: We say $R$ is Jacobson if every radical ideal $= sect.big_(frak(m) supse
 ]
 Remark: $V tilde.eq bb(k)^(n+1)$. $PP V = V without {0} \/ tilde$
 #definition[
-  $f in bb(k)[x]$ is homogeneous if $f(lambda x_1, dots, lambda x_n) = lambda^ell f(x_1, dots, x_n)$.
+  $f in bb(k)[underline(x)]$ is homogeneous if $f(lambda x_1, dots, lambda x_n) = lambda^ell f(x_1, dots, x_n)$.
 ]
 #definition[
   A projective algebraic set, $X subset.eq PP^n$ is 
@@ -162,4 +167,57 @@ Remark: $V tilde.eq bb(k)^(n+1)$. $PP V = V without {0} \/ tilde$
     V(T) = {[x_0: dots.c : x_n] | f(x) = 0, forall f in T}
   $
   for $T$ a set of homogeneous polynomials.
+]
+We have that $PP^n supset U_i = {[x_0: dots: x_n] | x_i != 0, x_i = 1}$. So then 
+$
+  PP^n = (U_i = AA^n) union.sq  PP^(n-1).
+$
+#example[
+  Let $W subset.eq bb(k)^(n+1)$ of $dim_k W = m+1$. Then $PP W subset.eq PP^n$ is a projective algebraic subset which is an $m$-plane in $PP^n$.
+]
+
+#example[Twisted cubic curve][
+  We have $PP^3 supset C = {[s^3: s^2 t : s t^2 : t^3] | [s:t} in PP^1]}$. Then we have that $C = V(x_0 x_3 - x_1 x_2, x_1^2 - x_0 x_2, x_2^2 - x_1 x_3)$. Then $U_0 sect C = {[1: t: t^2: t^3]}$. Additionally, we have $C without U_0 = {[0: 0: 0: 1]}$. Another way we can view this is 
+  $
+    V("2 by 2 minors of" mat(x_0, x_1, x_2; x_1, x_2, x_3)).
+  $
+  Now note that for a matrix $A$, $"rank"(A) <= r <==>$ all $(r+1) times (r+1)$ minors $=0$.
+]
+#question[
+  Can there exist $F,G$ such that $V(F, G) = C$? (Answer is yes)
+]
+For $X subset.eq PP^n$, algebraic subset, let 
+$
+  I(X) = {"homogeneous" f in bb(k)[ux] | f(p) = 0, forall p in X}
+$
+be the homogeneous ideal of $X$. 
+
+#pagebreak()
+
+#exercise[
+  $
+  {emptyset != X subset.eq PP^n "algebraic subsets"} <--> 
+  \ {"homogeneous radical ideals" frak(a) subset.eq bb(k)[ux] "such that" frak(a) != bb(k)[ux] "or" angle.l x_0, dots, x_n angle.r}.
+  $
+  This last part is called the "irrelevant ideal".
+]
+#definition[General Position][
+  In $PP^n$, any subset of size $<= n+1$ points are linearly independent. 
+]
+#theorem[
+  Every set $Gamma$ of $2n$ points in $PP^n$ in general position is carved out by quadrics. 
+]
+#proof[
+  We want to show that if $q in V({"all quadrics vanishing on" Gamma})$, then $q in Gamma$. Suppose $q$ is given. For any partition of $Gamma = Gamma_1 union.sq Gamma_2$, $|Gamma_i| = n$, $"span"(Gamma_1)$ is a hyperplane. Then for every such equi-partition, $q in "span"(Gamma_1)$ or $q in "span"(Gamma_2)$. 
+
+  Let $p_1, dots, p_k$ be a minimal subset of $Gamma$ whose span $in.rev q$ ($k <= n$). Now pick any $Lambda$ such that $|Lambda| = n - k + 1$ whcih does not contain any of the $p_i$. We claim that $q in.not "span"(p_2, dots, p_k, Lambda)$. 
+
+  We then conclude that for any $|S| = n-1$, $S subset.eq Gamma without p_1, dots, p_k$, we have that $"span"(p_1, S) in.rev q$. Because then
+  $
+    sect.big_S "span"(p, S)
+  $
+  is the intersection at least $n$ many hyperplanes, each of them containing $p_1, q$. But the intersection of $n$ many hyperplanes is a point, so $q = p_1$. This also  concludes that in fact $k=1$.
+]
+#definition[
+  Two sets $X, X' subset PP^n$ are projectively equivalent if $X' = g dot X$, $exists g in P G L_(n+1)$.
 ]
