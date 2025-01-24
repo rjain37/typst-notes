@@ -6,7 +6,7 @@
 #let purple = rgb("#efe6ff")
 #let red = rgb("#FFDBDD")
 #let black = rgb("#000000")
-#let gray = rgb("#a7a3a3")
+#let gray = rgb("#b7b5b5")
 #let green = rgb("#c5e0c5")
 
 #let blue_stroke = rgb("#363699")
@@ -45,28 +45,28 @@
 )
 
 #let definition = thmbox(
-  "definition",
+  "global",
   "Definition",
   stroke: green_stroke,
   base_level: 1
 )
 
 #let example = thmplain(
-  "example",
+  "global",
   "Example",
   base_level: 1,
   titlefmt: strong
 )
 
 #let exercise = thmplain(
-  "example",
+  "global",
   "Exercise",
   base_level: 1,
   titlefmt: strong
 )
 
 #let remark = thmbox(
-  "",
+  "global",
   "Remark",
   fill: gray
 ).with(numbering: none)

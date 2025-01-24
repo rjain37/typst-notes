@@ -221,3 +221,58 @@ be the homogeneous ideal of $X$.
 #definition[
   Two sets $X, X' subset PP^n$ are projectively equivalent if $X' = g dot X$, $exists g in P G L_(n+1)$.
 ]
+#proposition[
+  Let $(M_0, dots, M_3)$ be any $bb(k)$-basis of 
+  $
+    bb(k)[s, t]_3 = {f in bb(k)[s, t] "homog degree" 3} union {0}.
+  $
+  Then $phi: PP^1 -> PP^3$ by $phi: [s: t] |-> [M_0(s, t): dots : M_3(s, t)]$. Also, $phi(PP^1)$ is projectively equivalent to $C = {[s^3: s^2 t : s t^2 : t^3]}$. 
+]
+#example[Rational normal curve][
+  Let $phi: PP^1 -> PP^n$ via $phi: [s: t] |-> [s^n: s^(n-1) t : dots.c : t^n]$. Or we could map it to any basis of $bb(k)[s: t]_n$.
+]
+#exercise[
+  $I(phi(PP^1)) = ?$.
+]
+#example[
+  $[s^3: s^2 t : t^3]$ is the same as $V(y^3 - x^2 z)$. Also take $[s t^2 - s^3 : t^3 - s^2 t : s^3]$. This is carved out by $V(y^2z - x^3 - x^2 z)$. 
+]
+*Fact:* If we pick any 3 linearly independent $M_0, M_1, M_2 in bb(k)[s,t]_3$. Then $phi: PP^1 -> PP^2$ by $M_0, M_1, M_2$ has image projectively equivalent to one of the two curves above. 
+
+Now consider $PP^1 -> PP^3$ using 4 elements from $bb(k)[s, t]_4$. We consider $P tilde.eq C = {[s^4 : s^3 t: s t^3: t^4]}$. This is called the twisted quartic curve.
+
+#question[
+  Are all twisted quartic curves projectively equivalent?
+]
+#solution[
+  No. In fact, there are infinitely many distinct families.
+]
+#question[Hartshorne's Question][
+  Is every irreducible curve in $PP^3$ carved out by 2 equations?
+]
+= The Zariski Topology
+#definition[Zariski topology][
+  The sets ${V(I) subset.eq AA^n | I subset.eq bb(k)[ux]}$ form the closed sets of a tpology on $AA^n$ called teh Zariski topology.
+]
+Given $X subset.eq AA^n$, give it the subspace topology. 
+#example[
+  Take $AA^1$. Two closed subsets are $AA^1$ and $emptyset$. The other closed subsets are collections of finitely many points. As such, the open subsets are the complements of finitely many points. 
+]
+
+#definition[
+  A topological space $X$ is irreducible $X = Y_1 union Y_2$ (each closed) implies that $X = Y_1$ or $X = Y_2$.
+]
+
+#remark[
+  - Irreducible implies connected
+  - Connected does not imply irreducible
+  - Irreducible is useless in Hausdorff setting.
+]
+
+#proposition[
+  Let $X subset.eq AA^n$ be a nonempty algebraic subset. $X$ is irreducible if and only if $I(X)$ is prime if and only if $A(X)$ is a domain.
+ ]
+#proof[
+  - $==>$: Suppose $ f g in I(X)$. This means $V(f) union V(g) supset.eq X$. If $X$ is irreducible, then at least one of them completely contains $X$. That is, $V(f) supset.eq X$ or $V(g) supset.eq X$. But this exactly means $f$ or $g in I(X)$.
+  - $<==$: Suppose for sake of contradiction that $X$ is not irreducible. We have $X = Y_1 union Y_2$ (both proper), then $I(Y_2) supset.neq I(X)$. Take $f_i in I(Y_i) without I(X)$. Now analyze $f_1 f_2$. $V(f_1 f_2) supset Y_1 union Y_2 = X$. Therefore, $f_1 f_2 in I(X)$. But this is a contradiction, so we are done.
+]
