@@ -261,6 +261,8 @@ Given $X subset.eq AA^n$, give it the subspace topology.
 
 #definition[
   A topological space $X$ is irreducible $X = Y_1 union Y_2$ (each closed) implies that $X = Y_1$ or $X = Y_2$.
+
+  By definition, we will also say that irreducible implies nonempty.
 ]
 
 #remark[
@@ -275,4 +277,68 @@ Given $X subset.eq AA^n$, give it the subspace topology.
 #proof[
   - $==>$: Suppose $ f g in I(X)$. This means $V(f) union V(g) supset.eq X$. If $X$ is irreducible, then at least one of them completely contains $X$. That is, $V(f) supset.eq X$ or $V(g) supset.eq X$. But this exactly means $f$ or $g in I(X)$.
   - $<==$: Suppose for sake of contradiction that $X$ is not irreducible. We have $X = Y_1 union Y_2$ (both proper), then $I(Y_2) supset.neq I(X)$. Take $f_i in I(Y_i) without I(X)$. Now analyze $f_1 f_2$. $V(f_1 f_2) supset Y_1 union Y_2 = X$. Therefore, $f_1 f_2 in I(X)$. But this is a contradiction, so we are done.
+]
+
+#remark[
+  When people say affine variety, some people mean that it is also irreducible. But for us, affine variety is the same thing as affine algebraic set.
+
+  Then a quasi-affine variety is an open subset of an affine variety.
+]
+#example[
+  1. $AA^n$ is irreducible. ($bb(k)[ux]$ domain)
+  2. $V(x^2 + y^2) subset AA^2$ is reducible ($"char" bb(k) != 2$)
+  3. Let $f in bb(k)[ux]$ be square-free ($f = f_1 dots f_ell$ irreducible). Then $V(f)$ is irreducible if and only if $f$ is irreducible. 
+  4. $X = V(x^2 - y z) subset.eq AA^3$. Then $A(X) = (bb(k)[x,y,z])/(angle.l x^2 - y z angle.r)$. This is irreducible due to Eisenstein's on $f$. Now if we take $f in A(X)$ and look at $V_X (f) subset X$ is irreducible $arrow.l.not.double$ $f$ irreducible element in $A(X)$.
+]
+#definition[
+  A topological space $X$ is Noetherian if $exists.not X supset.eq Y_0 supset.neq Y_1 supset.neq dots.c$ such that each $Y_i$ is closed.
+]
+#proposition[
+  An affine variety is Noetherian. (Because $A(X)$ is Noetherian).
+]
+
+#theorem[
+  A Noetherian topological space $X$ is uniquely a finite union of maximal irreducible closed subsets.
+]
+#proof[
+  Consider 
+  $
+  {"nonempty closed subsets of" X "that does not admit a decomposition into irreducible closed subsets."}.
+  $
+  Suppose it is nonempty. Then it has a minimal element $Y$. $Y$ is not irreducible, so $Y = Y_1 union Y_2$ (both proper and closed). Since $Y$ is minimal, $Y_1$ and $Y_2$ both have decompositions into irreducible closed subsets. So if we just union those decompositions, then we contradict $Y$'s membership in the set. As such, the original set must have actually been empty.
+
+  Uniqueness and maximality are left as an exercise.
+]
+#proposition[
+  1. $X$ irreducible and $U subset.eq X$ open. Then $overline(U) = X$.
+  2. $V subset.eq X$, $V$ irreducible $==>$ $overline(V)$ irreducible.
+  3. $f: X -> Y$ continuous. Image of irreducible set under $f$ is irreducible. (Irreducibility is a topological property).
+]
+#example[
+  Let's have $phi: AA^n -> AA^m$ by $phi(ux) = (f_1 (ux), dots, f_m (ux))$ for some $f_1, dots, f_m in bb(k)[ux]$. Then $im(phi)$ is irreducible. It is left to show that $phi$ is a continuous map.
+]
+
+#definition[
+  Let $X$ be a nonempty topological space. 
+  $
+    dim X := sup{n | exists Y_0 subset.neq dots.c subset.neq Y_n, "each" Y_i "irreducible and closed"}.
+  $
+  Then let $Y subset.eq X$ closed irreducible subset. 
+  $
+    "codim"_X Y := sup{n | exists Y subset.eq Y_0 subset.neq dots.c subset.neq Y_n, "each" Y_i "irreducible and closed"}.
+  $
+]
+#example[
+  1. $dim AA^1 = 1$. 
+  2. $X = V(x z, y z) subset.eq AA^3$. Then $dim X = 2$. Let $p$ be a point on the axis not touching the $x$-$y$ plane. Then let $q$ be the origin. We have that $"codim"_X p = 1$ and $"codim"_X q = 2$. Also $dim p = dim q = 0$.
+]
+#definition[
+  Height of a prime $frak(p) subset R$ is 
+  $
+    "ht" frak(p) := sup{n | frak(p) = frak(p)_0 supset.neq dots.c supset.neq frak(p)_n, "each" frak(p)_i "prime"}.
+  $
+  Then Krull dimension of $R$ is
+  $
+    dim R := sup{"ht" frak(p) | frak(p) subset.eq R "prime"}.
+  $
 ]
