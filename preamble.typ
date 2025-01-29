@@ -66,9 +66,10 @@
 )
 
 #let remark = thmbox(
-  "global",
+  "remark",
   "Remark",
-  fill: gray
+  fill: gray,
+  stroke: (left: black)
 ).with(numbering: none)
 
 #let question = thmbox(
