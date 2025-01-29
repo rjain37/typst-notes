@@ -36,6 +36,9 @@
 = Introduction
 === Administrivia
 #let ux = $underline(x)$
+#let angled(..inputs) = {
+  $angle.l #inputs.pos().join(",") angle.r$
+}
 - Grade consists of two takehomes and one presentation/paper.
 - Exercise List/Notes: Canvas
 - Prerequisites: basic algebra, topology, and "multivariable calculus".
@@ -303,7 +306,7 @@ Given $X subset.eq AA^n$, give it the subspace topology.
 #proof[
   Consider 
   $
-  {"nonempty closed subsets of" X "that does not admit a decomposition into irreducible closed subsets."}.
+    {"nonempty closed subsets of" X "that does not admit a decomposition into irreducible closed subsets."}.
   $
   Suppose it is nonempty. Then it has a minimal element $Y$. $Y$ is not irreducible, so $Y = Y_1 union Y_2$ (both proper and closed). Since $Y$ is minimal, $Y_1$ and $Y_2$ both have decompositions into irreducible closed subsets. So if we just union those decompositions, then we contradict $Y$'s membership in the set. As such, the original set must have actually been empty.
 
@@ -341,4 +344,67 @@ Given $X subset.eq AA^n$, give it the subspace topology.
   $
     dim R := sup{"ht" frak(p) | frak(p) subset.eq R "prime"}.
   $
+]
+
+#definition[
+  For an ideal $I$, we have that 
+  $
+    "ht" I := inf{"ht" frak(p) | frak(p) supset.eq I "prime"}.
+  $
+  "inf of sup".
+]
+From these, we can basically show from definition that 
+$
+  "ht" I + dim R\/I <= dim R.
+$
+The $<$ case is possible if $R$ is not a domain. For example, if we have that $R = bb(k)[x,y,z]\/ angle.l x z, y z angle.r$ and then $I = angle.l x, y, z-1 angle.r$.
+
+But the $<$ case is also possible even if $R$ is a domain and $I$ prime.
+
+Before we cover the next theorem, we note that 
+$
+  {"minimal primes over" I} = {frak(p) "prime" frak(p) supset.eq I, "and" exists.not frak(p) supset.neq frak(q) supset.eq I, "prime" frak(q)}
+$
+#pagebreak()
+#theorem[Krull Principal Ideal Theorem / Height Theorem][
+  Let $R$ be a Noetherian ring and $f_1, dots, f_c in R$. 
+  1. Minimal primes over $angle.l f_1 angle.r$ have height $<= 1$. And the height is equal to 1 if $f_1$ is nonzerodivisor and nonunit.
+  2. Minimal primes over $angle.l f_1, dots, f_c angle.r$ have height $<= c$.
+]
+"We could do this proof, but it's like proving that there exists a complete ordered field satisfying the least upper bound property."
+#theorem[
+  Let $X subset.eq AA^n$ and $YY subset.eq AA^m$ irreducible affine varieties. 
+  1. $dim(X times Y) = dim X + dim Y$.
+  2. If $Y subset.eq X$, then $dim Y + "codim"_X Y = dim X$.
+]
+#remark[Noether normalization][
+  For $X subset.eq AA^n$ irreducible affine variety. There exists $y_1, dots, y_d in A(X)$ such that $bb(k)[Y_1, dots, Y_d] -> A(X)$ with $Y_i |-> y_i$ which is a finite extension (injective and $A(X)$ is finitely generated $bb(k)[Y]$-module) and $d = dim X$.
+]
+#corollary[
+  1. $dim AA^n = n$.
+  2. $X subset.eq AA^n$ irreducible affine variety. $0 != f in A(X)$ non unit. Then $V_X (f) = V(f) sect X$ has dimension $dim X - 1$.
+]
+#exercise[
+  Let $U subset.eq X$ be open for $X$ affine variety irreducible. Then $dim U = dim X$.
+]
+#proposition[
+  Let $R$ be Noetherian domain. Then $R$ UFD $<==>$ every $"ht" = 1$ prime is principal.
+]
+#proof[
+  $R$ being a UFD implies that $frak(p)$ has height 1. So let $f = f_1, dots, f_ell in frak(p)$. Suppose $f_1 in frak(p)$. So then $0 != angled(f_1) subset.eq frak(p)$. But as $"ht" frak(p) = 1$, we have that $angled(f_1) eq frak(p)$.
+
+  Conversely, we need to show that irreducible implies prime. That is, recall that (ACCP + irreducible = prime) implies that we have a UFD.
+
+  So let $f in "irred"$. Krull's PIT says $angled(f) subset.eq frak(p)$ where $frak(p)$ has height 1. So by definition, $frak(p) = angled(g)$, but $angled(f) subset.eq angled(g)$ implies that $f = g$ because $f$ is irreducible.
+]
+#pagebreak()
+#example[
+  Let $X = V(x^2 - y  z) subset.eq AA^3$. Then let $Y = V(x, y) subset.eq X subset.eq AA^3$. Then $dim X = 2$. Then $dim Y = 1$. So can we find $f$ such that $angled(f"," x^2 - y z) = I(Y)$? The answer to this is no.
+
+  But can we find $f$ such that $sqrt(angled(f"," x^2 - y z)) = angled(x"," y)$? Take $f=y$ and analyze $angled(y"," x^2 - y z)$. This is the same as $angled(y"," x^2)$, whose radical is $angled(x"," y)$ as we desire.
+]
+#example[
+  Now consider $X = V(x w - y z) subset.eq AA^4$. $dim X = 3$ and let $Y = V(x, y)$. Now does there exist $f$ such that $sqrt(angled(f"," x w - y z)) = angled(x, y)$?
+
+  This is false, but we don't have the tools to prove it.
 ]
