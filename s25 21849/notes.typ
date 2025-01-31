@@ -408,3 +408,84 @@ $
 
   This is false, but we don't have the tools to prove it.
 ]
+
+
+#definition[
+  Zariski topology on $PP^n$ has projective algebraic sets as its closed subsets.
+]
+Two ways: projective varieties $->$ affine varieties. 
+1. $U_i = {x_i != 0} = {[x_0 : dots : x_i = 1: dots: x_n]} tilde.eq AA^n$.
+
+#proposition[
+  $forall i = 0, dots, n$, say $i = 0$, $AA^n --> U_0$, $(x_1, dots, x_n) |-> [1: x_1: dots: x_n]$ is a homeomorphism.
+]
+#proof[
+  - _Homogenization_: let $f in bb(k)[x_1, dots x_n]$. Then we have
+    $
+      f^h := x_0^(deg f) f(x_1/x_0, dots, x_n/x_0) in bb(k)[x_1, dots, x_n].
+    $
+    If $Z = V(f_1, dots, f_m) subset.eq AA^n$, $phi(Z) = U_0 sect V(f_1^h, dots f_m^h)$ is closed. 
+
+    If $Z' = V(F_1, dots, F_ell) sect U_0$, then $phi(Z') = V(F_1(1, x_2, dots, x_n), dots, F_ell (1, x_2, dots, x_n))$. 
+
+    Now $U_0 union dots union U_n = PP^n$.
+]
+
+#exercise[
+  Let $Y subset.eq AA^n tilde.eq U_0$ be an affine variety. $overline(Y) = V(?)$. Suppose $V(f_1, dots, f_m) = Y$. It is tempting to say $overline(Y) = V(f_1^h, dots, f^h_m)$. 
+]
+
+#corollary[
+  1. $dim PP^n = n$.
+  2. If $H_i = V(x_i) subset.eq PP^n$ does not contain any irreducible components of $Y subset.eq PP^n$, then $dim Y = dim Y sect U_i$. 
+]
+
+#definition[
+  Let $Y subset.eq PP^n$ be a projective variety. The affine cone $hat(Y) = C(Y)$ is 
+  $
+    theta^(-1) (Y) union {0} subset.eq AA^(n+1)
+  $
+  where 
+  $
+    theta: AA^(n+1) without {0} --> PP^n.
+  $
+]
+
+#proposition[
+  1. $hat(Y) = V(I(Y))$. In fact, $I(hat(Y)) = I(Y)$.
+  2. $dim hat(Y) = dim Y + 1$.
+  3. $hat(Y)$ is irreducible if and only if $Y$ is irreducible.
+]
+
+#theorem[
+  If $X,Y subset.eq PP^n$ are projective varieties and $dim X + dim Y >= n$, then $X sect Y != emptyset$.
+]
+
+#lemma[
+  If $X,Y subset.eq AA^n$ affine varieties, then $X sect Y = nothing$ or every irreducible component of $X sect Y$ has $dim >= dim X + dim Y - n$.
+]
+#proof[
+  Let $Delta = V(x_1 - y_1, dots, x_n - y_n) subset.eq AA^(n+n)$. Note that
+    $
+      X times Y sect Delta tilde.eq X sect Y.
+    $
+    So, $dim(X times Y sect Delta) >= dim X + dim Y - n$ by Krull's height theorem.
+
+    If $underline(a) = (a_1, dots a_n)$ are varieties, then $I_a(X) = {f(underline(a) | f in I(X)}$. Then, 
+    $
+      A(X sect Y) = frac(bb(k)[underline(z)], sqrt(angled(I_z(X) + I_z(Y))))
+    $
+    and
+    $
+      A(X times Y sect Delta) = frac(bb(k)[ux, underline(y)], sqrt(angled(I_x(X) + I_y(Y) + I(A)))).
+    $
+    So this implies that $x_i = y_i$ for all $i$, meaning they are isomorphic rings.
+]
+
+#proof[of Theorem 4.28][
+  $X,Y$ irreducible implies that $hat(X)$ and $hat(Y)$ are irreducible. So, then
+  $
+    dim(hat(X) sect hat(Y)) >= dim X + 1 + dim Y + 1 - (n+1) >= dim X + dim Y - n + 1.
+  $
+  $hat(X) sect hat(Y)$ contains origin by construction, but it has at least one other point because dimension.
+]
