@@ -489,3 +489,75 @@ Two ways: projective varieties $->$ affine varieties.
   $
   $hat(X) sect hat(Y)$ contains origin by construction, but it has at least one other point because dimension.
 ]
+= Morphisms
+#definition[
+  For $U subset.eq RR^n$, $U' subset.eq RR^m$ open, $phi: U -> U'$ is continuous/continuously differentiable/smooth if $f compose phi$ is smooth for any smooth $f: U' -> RR$.
+
+  $f': U' -> RR$ is smooth if $f$ is smooth at every point $p in U'$. 
+]
+
+#definition[
+  For affine variety $X subset.eq AA^n$ and $U subset.eq X$ open, a function $phi: U -> bb(k) = AA^1$ is regular if $forall p in U$, $exists U_p in.rev p$ open and $f_p, g_p in A(X)$ such that $phi(x) = frac(f_p(x), g_p(x))$ for all $x in U_p$. In particular, $g_p(x) != 0$ for all $x in U_p$.
+
+  $cal(O)_X (U) := {"regular functions on" U}$. This is also a $bb(k)$-algebra.
+]
+#example[
+  Let $U subset.eq X$, $phi : U -> AA^1$ regular $arrow.not.double$ $phi = f/g$ globally for some $f,g in A(X)$.
+
+  $X = V(x w - y z) subset AA^4$, $U = X without V(x,y)$. 
+  $
+    phi(x,y,z,w) = cases( z/x "if" x!=0,
+    w/y "if" y!=0).
+  $
+]
+
+#lemma[
+  $phi: U -> AA^1$ regular, then $V(phi) = {x in U | phi(x) = 0}$ is closed in $U$. In particular $phi$ is continuous.
+]
+#proof[
+  Closedness is a local condition, and around any $p in U$, ${phi harpoon.tr U_p : 0} = V(f_p) sect U_p$.
+]
+#remark[
+  If $phi_1, phi_2 in cal(O)_X (U)$ for $U$ irreducible, and $phi_1 harpoon.tr U' = phi_2 harpoon.tr U'$ for some $emptyset != U' subset.eq U$, then $phi_1 = phi_2$.
+]
+#definition[
+  $X subset.eq AA^n$ affine variety. A distinguished open subset $U$ of $X$ is an open subset of the form $X without V(f)$ for some $f in A(X)$, denoted $D(f), D_f, U_f, X_f$. $X_f$ is probably the most descriptive as it actually mentions $X$.
+]
+#remark[
+  ${D(f)}_(f in A(X))$ form a basis for Zariski topology. What that means is that any $U subset.eq X$ is a union for $D(f)$'s.
+]
+
+#exercise[
+  $D(f)$ is homeomorphic to $V(I(X) + angled(1 - y f)) subset.eq AA^(n+1)$.
+]
+#theorem[
+  $cal(O)_X (D(f)) = {g/f^m | g in A(X), m in ZZ_(>= 0)}$. In fact, $cal(O)_X (D(f)) = A(X)_f$.
+]
+#example[
+  $cal(O)_(AA^2)(AA^2 without {0}) = A(AA^2) = bb(k)[x,y].$ Then,
+  $
+    AA^2 in.rev phi = cases(
+      f/x^m "for some" f in bb(k)[x,y] "on" AA^2 without V(x),
+      g/y^ell "for some" g in bb(k)[x,y] "on" AA^2 without V(y)
+    ).
+  $
+  Then we say $y^ell f = x^m g$ on $AA^2$. Because we are in a UFD, this means that $x^m divides f$ and $y^ell divides g$. But this implies $m = ell = 0$, so $f=g=phi$.
+]
+#proof[of Theorem 5.7][
+  $supset.eq$ is clear. So we only prove the $subset.eq$ case.
+
+  Suppose we have $phi in cal(O)_X (D(f))$. Then for all $p in D(f)$, $exists U_p in.rev p$ and $phi harpoon.tr U_p = g_p'/f_p'$ for $g_p', f_p' in A(X)$. 
+
+  Take a nonempty $D(h_p) subset.eq U_p$ and write $g_p = g_p' h_p$ and $f_p = f_p' h_p$.
+
+  Then $phi harpoon.tr D(f_p) = g_p/f_p = (g_p f_p)/(f_p^2)$. So assume $g_p = 0$ on $V(f_p)$. 
+
+  Now we claim that $forall p,q in D(f)$, we have $g_p f_q = g_q f_p$ in $A(X)$.
+
+  Then $D(f) = union.big_p D(f_p)$. Then $V(f) = sect.big_p V(f_p)$. Nullstellensatz says that $sqrt(angled(f)) = sqrt(angled(f_p : p in D(f)))$ as ideals in $A(X)$. But then, $f^m = sum k_p f_p$. By Noetherian-ness, this is a finite sum. We claim that $g = sum k_p f_p$.
+
+  Then $g/f^m = g_q/f_q$ on $D(f_q)$ for all $q in D(f)$. So,
+  $
+    g f_q = sum_p k_p g_p f_q = sum_p k_p f_p g_q = g_q f^m.
+  $
+]
