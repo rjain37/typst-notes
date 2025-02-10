@@ -497,7 +497,7 @@ Two ways: projective varieties $->$ affine varieties.
 ]
 
 #definition[
-  For affine variety $X subset.eq AA^n$ and $U subset.eq X$ open, a function $phi: U -> bb(k) = AA^1$ is regular if $forall p in U$, $exists U_p in.rev p$ open and $f_p, g_p in A(X)$ such that $phi(x) = frac(f_p(x), g_p(x))$ for all $x in U_p$. In particular, $g_p(x) != 0$ for all $x in U_p$.
+  For affine variety $X subset.eq AA^n$ and $U subset.eq X$ open, a function $phi: U -> bb(k) = AA^1$ is regular if $forall p in U$, $exists U_p in.rev p$ open and $f_p, g_p in A(X)$ such that $phi(x) = frac(f_p (x), g_p (x))$ for all $x in U_p$. In particular, $g_p (x) != 0$ for all $x in U_p$.
 
   $cal(O)_X (U) := {"regular functions on" U}$. This is also a $bb(k)$-algebra.
 ]
@@ -560,4 +560,42 @@ Two ways: projective varieties $->$ affine varieties.
   $
     g f_q = sum_p k_p g_p f_q = sum_p k_p f_p g_q = g_q f^m.
   $
+]
+= Sheaves
+Let $cal(A)$ be a category: AbGrp, Rings, $bb(k)$-algebras. Given a topological space $X$, $"Top"(X)$ is a category where the objects are open subsets $U subset.eq X$ and morphisms are inclusions between $U subset.eq V$ open subsets.
+#definition[
+  A presheaf (with values in $cal(A)$) on $X$ is a contravariant functor $cal(F): "Top"(X) -> cal(A)$.
+
+  $cal(F)$ is further a sheaf if for every open cover ${U_i}_i$ of any open subset $U subset.eq X$ if
+  $
+  cal(F)(U) -> product_(i) cal(F)(U_i) arrows.rr product_(i, j) cal(F)(U_i sect U_j)
+  $
+  is an equalizer. 
+]
+*Translation*: 
+1. Assignment $U |-> cal(F)(U) in "obj"(cal(A))$ such that $forall U subset.eq V subset.eq X$ open, 
+  $
+    "res"_(V, U) : cal(F)(V) -> cal(F)(U)
+  $
+  such that $"res"_(U, U) = id$ and $"res"(V, U) compose "res"(W, V) = "res"(W, U)$.
+2. If $(f_i)_i in product_i cal(F)(U_i)$ such that $"res"_(U_i, U_i sect U_j)(f_i) = "res"_(U_j, U_i sect U_j)(f_j)$, then $exists! f in cal(F)(U)$ such that $"res"_(U, U_i)(f) = f_i$. Also $cal(F)(nothing) = 0$ as a consequence.
+
+  $f harpoon.tr V := "res"_(U, V)(f)$, $f in cal(F)(U)$. $cal(F)(U)$ elements are called sections of $cal(F)$ over $U$.
+
+#example[
+  Note that throughout these examples, $X$ is a topological space and $U subset.eq X$.
+  1. $cal(F)_("ct")(U) := {phi: U -> RR}$. Then if $U' subset.eq U$, $"res"_(U, U')(f) := f harpoon.tr U'$. 
+  2. $C(U) := {phi: U -> RR "cts"}$.
+  3. $C^oo (U) := {phi: U -> RR "smooth"}$ $(X subset.eq RR^n$ open). 
+  4. $underline(RR)(U) := {phi: U -> RR, "constant"}$. This is not a sheaf. If we consider a constant function that takes the value $a$ on $U$ and $b$ on $U'$, then there is no value $c$ such that they can be glued together to be equal on both sets.
+  5. $cal(O)_X(U) := {phi: U -> bb(k) "regular"}$
+]
+#remark[
+  A constant sheaf $A_X(U "conn") = A$. A locally constant sheaf (locally $cal(F) harpoon.tr U$ is constant). Locally constant does not imply constant.
+]
+#definition[
+  $U subset.eq X$, $cal(F)$ sheaf on $X$, $cal(F) harpoon.tr U(V) = cal(F)(V)$ for $V subset.eq U$ open. 
+]
+#definition[
+  $cal(F)$ sheaf on $X$. $p in X$.  The stalk of $cal(F)$ at $p$, $cal(F)_p := lim_(U in.rev p) cal(F)(U)$. This is actually just equal to ${(U, f) | U in.rev p, f in cal(F)(U) slash ~}$ where $(U_1, f_1) ~ (U_2, f_2)$ if $exists V in.rev p$ such that $f_1 harpoon.tr V = f_2 harpoon.tr V$.
 ]
