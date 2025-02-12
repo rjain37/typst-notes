@@ -1,4 +1,5 @@
 #import "@preview/ctheorems:1.1.3": *
+#import "@preview/commute:0.2.0": node, arr, commutative-diagram
 #show: thmrules
 
 
@@ -97,3 +98,14 @@
 		fill: repeat[]
 	)
 }
+
+// SYMBOLS
+#let ux = $underline(x)$
+#let uy = $underline(y)$
+#let uz = $underline(z)$
+#let angled(..inputs) = {
+  $angle.l #inputs.pos().join(",") angle.r$
+}
+#let restriction = $harpoon.tr$
+#let ni = $in.rev$
+#let notin = $in.not$

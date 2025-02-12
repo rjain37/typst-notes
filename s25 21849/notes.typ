@@ -35,10 +35,10 @@
 
 = Introduction
 === Administrivia
-#let ux = $underline(x)$
-#let angled(..inputs) = {
-  $angle.l #inputs.pos().join(",") angle.r$
-}
+// #let ux = $underline(x)$
+// #let angled(..inputs) = {
+//   $angle.l #inputs.pos().join(",") angle.r$
+// }
 - Grade consists of two takehomes and one presentation/paper.
 - Exercise List/Notes: Canvas
 - Prerequisites: basic algebra, topology, and "multivariable calculus".
@@ -598,4 +598,61 @@ Let $cal(A)$ be a category: AbGrp, Rings, $bb(k)$-algebras. Given a topological 
 ]
 #definition[
   $cal(F)$ sheaf on $X$. $p in X$.  The stalk of $cal(F)$ at $p$, $cal(F)_p := lim_(U in.rev p) cal(F)(U)$. This is actually just equal to ${(U, f) | U in.rev p, f in cal(F)(U) slash ~}$ where $(U_1, f_1) ~ (U_2, f_2)$ if $exists V in.rev p$ such that $f_1 harpoon.tr V = f_2 harpoon.tr V$.
+]
+Remember that $cal(F)"ct"_S (U) = {f: U -> S}$ and $C(U) = {f: U -> R "cts"}$.
+#remark[
+  $cal(F)(V) -> cal(F)(U)$ by $'"res"_(V, U)$. This map need not be surjective. 
+]
+#theorem[
+  Let $X$ be an affine variety and $x in X$. $cal(O)_(X, x) = A(X)_(frak(m)_X)$.
+]
+#proof[
+  Consider the ring map $A(X)_(frak(m)_x) -> cal(O)_(X, x)$ where we map $f/g |-> f/g$. 
+
+  Now if $f/g = f'/g'$ in $A(X)_(frak(m)_x)$, then we need to check that the same is true around $x$ in $cal(O)_(X, x)$.
+
+  Now if $f/g$ is 0 around $x$ (in $D(h)$), we can deduce that $f/g = 0$ in $A(X)_(frak(m)_x)$.
+]
+#definition[
+  A ringed space $(X, cal(O)_X)$ where $X$ is a topological space and $cal(O)_X$ is a sheaf on $X$ with values in $"Ring"$. We call $cal(O)_X$ the structure sheaf of this ringed space.
+]
+#definition[
+  $f: X -> Y$ continuous and $cal(F)$ a sheaf on $X$. 
+  $
+    "pushforward" f_* cal(F)(V) = cal(F)(f^(-1) V)
+  $
+  where $V supset Y$ is open.
+]
+#definition[
+  Let $cal(F)$ and $cal(G)$ be sheaves on $X$. $Phi: cal(F) -> cal(G)$ means that for each $U subset.eq X$, we specify $Phi(U): cal(F)(U) -> cal(G)(U)$  where for $U subset.eq V$,
+  we have the following diagram commuting:
+  #align(center)[#commutative-diagram(
+  node((0, 0), $cal(F)(U)$),
+  node((0, 1), $cal(G)(U)$),
+  node((1, 0), $cal(F)(V)$),
+  node((1, 1), $cal(G)(V)$),
+  arr($cal(F)(U)$, $cal(G)(U)$, $Phi(U)$),
+  arr($cal(F)(V)$, $cal(G)(V)$, $Phi(V)$),
+  arr($cal(F)(V)$, $cal(F)(U)$, "res"),
+  arr($cal(G)(V)$, $cal(G)(U)$, "res")
+)]
+  where $V supset Y$ is open.
+]
+#definition[
+  A morphism of ringed spaces $(X, cal(O)_X) -> (Y, cal(O)_Y)$ is a  pair $(f, f^\#)$ where $f: X -> Y$ is continuous and $f^\#: cal(O)_Y -> f_* cal(O)_X$.
+]
+#example[
+  $(U subset.eq RR^n, C^1) -> (V subset.eq RR^m, C^1)$.
+]
+#remark[
+  When we say $(X, cal(O)_X)$, we mean that $cal(O)_X$ is a subsheaf of $cal(F)"ct"_(bb(k))$ for some fixed $bb(k)$. Then $cal(O)_X = {phi:  U-> bb(k) | phi "satisfies some condition"}$. And, $cal(O)_X -> f_* cal(O)_Y$ is always given by precomposition.
+]
+== Category of quasi Affine varieties "qAffVar".
+To define this cateogry, we'll have the objects be open subsets of an affine variety consdiered as a ringed space. The morphisms will be maps of ringed spaces with $f^\#$ being the precomposition as our convention above dictates. 
+
+#theorem[
+  $X, Y$ both affine varieties. $U subset.eq X$ open. Then there exists a natural bijection.
+  $
+    "Mor"(U, Y) tilde.eq "Hom"_(bb(k)"-alg")(A(Y), cal(O)(U)).
+  $
 ]
