@@ -109,3 +109,6 @@
 #let restriction = $harpoon.tr$
 #let ni = $in.rev$
 #let notin = $in.not$
+#let cup = $union$
+#let cap = $sect$
+#let mapsto = $|->$

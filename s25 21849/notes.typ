@@ -656,3 +656,48 @@ To define this cateogry, we'll have the objects be open subsets of an affine var
     "Mor"(U, Y) tilde.eq "Hom"_(bb(k)"-alg")(A(Y), cal(O)(U)).
   $
 ]
+
+#pagebreak()
+=== Ok unfortunately i was forced to miss two classes so there is gap here
+#proposition[
+  Suppose $X, Y$ are prevarieties with affine covers ${U_i}$ and ${V_j}$ respectively. Then $X times Y$ is a product in the category of prevarieties constructed by gluing together $U_i times V_j$ and $U_(i') times V_(j')$,
+  $
+    (U_i sect U_(i')) times (V_j sect V_(j'))
+  $
+  for all such pairs. 
+]
+We did not prove that gluing gives you a prevariety, but we will believe it. Also note that $X times Y$ is a prevariety by affine cover ${U_i times V_j}$. 
+#proposition[
+  For $Y subset.eq X$ closed where $iota : Y -> X$ and $X$ is a prevariety. Then for $U' subset.eq Y$ open,
+  $
+    iota^* cal(O)_X (U') = {f: U' -> bb(k) | forall y in U', exists U_y subset X "with" phi in cal(O)_X (U_y) "such that" f restriction U_y sect Y = phi}.
+  $
+  Then $iota^* cal(O)_X$ is a sheaf and $(Y, iota^* cal(O)_X)$ is a prevariety, and $iota : Y -> X$ is a morphism.
+]
+#proof[
+  We will believe that $iota^* cal(O)_X$ is a sheaf. Also $iota$ is a morphism of prevarieties. 
+
+  Let $U subset.eq X$ be affine open. We claim that $(U cap Y, iota^* cal(O)_X restriction U cap Y)$ is affine. We claim that $Y = V(I)$ for some $I subset.eq A(X)$.
+
+  Then, $iota^* cal(O)_X$ are the functions that are locally restrictions of regular functions on $X$. Then $cal(O)_(V(I))$ are functions that are locally quotient of polynomials on $AA^n$. These are equal.
+]
+We say that $iota$ is a closed embedding. 
+#example[
+  1. $AA^2 -> AA^2$ via $(x,y) |-> (x, x y)$. This maps $AA^2$ to itself without the $y$-axis, but still including the origin. Note that the image of this map is neither open nor closed in $AA^2$. 
+    #remark[
+      $Y subset.eq X$ is locally closed if it is $U cap V$ where $U$ is open in $X$ and $V$ is closed in $X$.
+  ]
+    This example is not even locally closed.
+  2. Glue $AA^1$ and $AA^1$ along $AA^1 without {0} -> AA^1 without {0}$ via the identity. This is basically a line with two origins. Let this line be called $X$. Consider $g:  X-> X$ via switching the origins and keeping the other points the same. This is a morphism where our open subsets are lines including only one of the origins, and it is not hard to check that this is actually a morphism. Then,
+      ${g(x) = x)}  tilde.eq AA^1 without {0}$
+    which is not closed in $X$.
+]
+#definition[
+  A prevariety of $X$ is a variety of the diagonal map $Delta: X -> X times X$ defined by $x |-> (x, x)$ is a closed embedding. 
+]
+#lemma[
+  For checking if something is a variety, $Delta$ being a topologically closed embedding is a sufficient condition.
+]
+#corollary[
+  Open and closed subprevarieties of varieties are varieties. 
+]
