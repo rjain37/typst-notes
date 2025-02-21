@@ -701,3 +701,65 @@ We say that $iota$ is a closed embedding.
 #corollary[
   Open and closed subprevarieties of varieties are varieties. 
 ]
+#lemma[
+  Let $X$ and $Y$ be affine varieties and $f: X -> Y$. If $f^\# : A(Y) ->> A(X)$, then $f$ is a closed embedding.
+]
+#proof[
+  Let $J$ be the kernel. And consider the surjective map 
+  $
+    k[uy]/I(Y) ->> k[ux]/I(X).
+  $
+  This is also surjective onto $k[uy]/(I(Y) + J)$. This is $V_Y (J)$, so we get that $A(V_Y (J)) tilde.eq A(X)$ as desired.
+]
+
+#lemma[
+  Let $X$ be an affine variety, then $Delta: X -> X times X$ defined by $x mapsto (x, x)$ is a closed embedding.
+]
+#proof[
+  $A(X) = k[ux]/I(X)$, $A(X times X) tilde.eq A(X) times.circle A(X)$. THen we can map
+  $
+    k[ux, uy]/(I_x(X) + I_y(Y)) ->> k[ux]/I(X)
+  $
+  via $x_i mapsto x_i$ and $y_i mapsto x_j$.
+]
+#proposition[
+  $X$ prevariety is a variety if $Delta(X) subset.eq X times X$ is closed.
+]
+#proof[
+  We claim that $forall x in X$, take any $x in U subset X$ affine open. Then $Delta restriction U : U -> U times U$ is a closed embedding.
+
+  Since $Delta (X) subset.eq X times X$ is closed (topologically closed embedding, locally closed embedding implies closed embedding. So $cal(O)_X tilde.eq cal(O)_(Delta(X))$.
+
+  It is important theat $Delta restriction U$ is closed because of the following:
+
+  $Y subset.eq X$ such that $forall y in Y$, $exists U_y subset X$ containing $y$ such that $U_y cap Y$ is closed in $U_y$ does not imply that $Y subset.eq X$ is closed. However, under our assumption, it would be that way.
+]
+#corollary[
+  $"qAffVar"$ are varieties.
+]
+#corollary[
+  $X ->^f Y$ morphism of varieties. The graph $Gamma_f := {(x,y) in X times Y | y  =f(x)}$ is closed in $X times Y$.
+]
+#proof[
+  $X times Y ->^(f times id) Y times Y$. Then $(f compose id)^(-1) (Delta(Y)) = Gamma_f$.
+]
+#exercise[
+  Let $X$ be a variety and $U, U' subset.eq X$ open affine subsets. Then $U cap U'$ is also affine open.
+]
+
+#definition[
+  Let $X subset.eq PP^n$ be a projective algebraic subset. $cal(O)_X (U) = {phi : U -> bb(k) | "locally encrypted" (phi restriction U') = F/G "for some homogeneous poly" F,G "of same degree."}$.
+]
+#proposition[
+  $X subset.eq PP^n$ projected algebraic set $arrow.squiggly (X, cal(O)_X)$ if for all $i = 0,1,dots, n$, let $U_i = PP^n without V(x_i) tilde.eq^"homeo" AA^n$. Then $(X cap U_i, cal(O)_X restriction U_i)$ is isomorphic as a ringed space  to $X cap U_i$ considered as a closed subset in $AA^n$ under $AA^n tilde.eq U_i$ and hence an affine variety. In particular, $X$ is a prevariety.
+]
+#proof[
+  $X = V(F_1, dots, F_m)$. Then $X cap U_i  subset AA^n$ is $V(F_1(x_0, dots, x_i = i, dots, x_n), dots, F_m)$.
+
+  If we have $F/G in (X cap U_i, cal(O)_X restriction U_i)$, then we can just dehomogenize to get $f/g in (X cap U_i, cal(O)_(X cap U_i subset.eq AA^n))$.
+]
+
+#lemma[
+  $X subset PP^n$ a projective variety. Let $F_0, dots, F_m$ be homogeneous polynomials on $PP^n$ of same degree. Then $F: X without V(F_0, dots, F_m) -> PP^m$ by $x mapsto (F_0(x), dots, F_m (x))$ is a morphism.
+]
+
