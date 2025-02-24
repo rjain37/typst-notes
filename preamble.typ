@@ -112,3 +112,4 @@
 #let cup = $union$
 #let cap = $sect$
 #let mapsto = $|->$
+#let span = $"span"$

@@ -658,6 +658,7 @@ To define this cateogry, we'll have the objects be open subsets of an affine var
 ]
 
 #pagebreak()
+= Projective morphisms
 === Ok unfortunately i was forced to miss two classes so there is gap here
 #proposition[
   Suppose $X, Y$ are prevarieties with affine covers ${U_i}$ and ${V_j}$ respectively. Then $X times Y$ is a product in the category of prevarieties constructed by gluing together $U_i times V_j$ and $U_(i') times V_(j')$,
@@ -762,4 +763,63 @@ We say that $iota$ is a closed embedding.
 #lemma[
   $X subset PP^n$ a projective variety. Let $F_0, dots, F_m$ be homogeneous polynomials on $PP^n$ of same degree. Then $F: X without V(F_0, dots, F_m) -> PP^m$ by $x mapsto (F_0(x), dots, F_m (x))$ is a morphism.
 ]
+#proof[
+  As a set map, this is well-defined. We will verify that $forall j = 0, dots, m$, the distinguished open subset $U_j = {[underline(Y)] in PP^m | Y_j != 0}$. We have 
+  $
+    F^(-1)(U_j) =  PP^n without V(F_j).
+  $
+  Then $F^(-1)(U_j) -> U_j$ where $U_j tilde.eq AA^m$. We'll call the coordinates of $AA^m$ by $(Y_0/Y_j, dots, Y_m/Y_j)$. So if we have a point $x in F^(-1)(U_j)$, then the associated point in $AA^m$ would attained by sending  
+  $
+    x mapsto ((F_0 (x))/(F_j (x)), dots, (F_m (x))/(F_j (x))).
+  $
+  We showed that if we had a map from a quasi affine variety $W ->X$ where $X$ is an affine variety, we just had to map $A(X) -> cal(O) (W)$. In an exercise, we showed that you can replace "quasi affine variety" with "prevariety" and get the same result. 
+]
+#example[
+  1. $PP^1 -> PP^n$ where we map $[s: t] mapsto [s^n: s^(n-1) t : dots.c : t^n]$. We know this will be a morphism by our lemma as long as we verify that it is full of zeroes only when $s=t=0$, but this is clear.
+
+    We can also map $PP^1 -> PP^2$ by $[s: t] mapsto [s^3: s^2 t: t^3]$. This is because it maps nicely as above to $[s^3: s^2 t: s t^2 : t^3]$, then we can project to drop the third coordinate to get the map we are describing. We are left to show that projections are morphisms
+  2. Projections: $PP^n without {[1: 0: dots.c : 0]} -> PP^(n-1)$ by mapping 
+    $
+      [x_0: dots.c x_n] mapsto [x_1: dots.c: x_n].
+    $
+    More formally, we can consider $PP V without {[v]} -> PP(V / span(v))$, or $PP V without PP W -> PP (V slash W)$ where $W subset V$.
+
+    So, the second example above becomes $PP^3 without [0: 0: 1: 0] -> PP^2$. 
+  3. Veronese embedding. 
+    $
+      nu_d: PP^n -> PP^(binom(n + d, d) - 1)
+    $
+    by $[x] mapsto ["every monomial of" x "of degree" d]$.
+  #exercise[
+    $nu_d$ is a closed embedding.
+  ]
+  4. Segre embedding:
+    $
+      PP^n times PP^m -> PP^((n+1)(m+1))
+    $
+    by $([underline(X)], [underline(Y)]) mapsto mat(x_0 y_0, dots, x_0 y_m; dots.v, , dots.v; x_n y_0, dots,  x_n y_m)$ where this really should just be one long vector, but it is easier to represent as such. We will prove that this is a closed embedding.
+    #proof[
+      Fix some $0 <= i <= n$ and $0 <= j <= m$. Then we have 
+      $
+        U_(i j) &tilde.eq AA^(m n + m + n) \
+        &={[z_(a b)] in PP^((n+1)(m+1) - 1) | z_(i j) != 0}.        
+      $
+      Then $S^(-1) (U_(i j)) = U_i times U_j$ where $U_i  subset PP^n$ and $U_j subset PP^m$.The coordinates are $x_a/x_i$'s and $y_b / y_j$'s. This maps $AA^(n+m) -> AA^(n + m + n m)$ where the coordinates are $z_(a b)/z_(i j)$'s. We could map 
+      $
+        z_(a b) / z_(i j) mapsto (x_a y_b) / (x_i y_j).
+      $
+      We claim that this is surjective. This is clear, as for example $z_(a j) / z_(i j) mapsto x_a/ x_i$.
+    ]
+  5. $PP^1 times PP^1 -> PP^3$ maps $(mat(a; b), mat(c, d)) mapsto mat(a c , a d ; b c, b d)$. The matrix is isomorphic to $PP^1 times PP^1$. Then the image is the same as $V(x w - y z)$ where $mat(a c , a d ; b c, b d) = mat(x, y; z, w)$.
+  6. $X subset PP^n$ and $V(F_0, dots, F_m) cap X = emptyset$. Then $F: X -> PP^m$ is a well-defined morphism. The question is: do all maps from $X -> PP^m$ arise in this way?
+
+    Well the answer is no because $P^1 times P^1 -> PP^3$ as defined in the last example works. We can project $PP^1 times PP^1$ to $PP^1$. And the counterexample arises because there is no $F_0, F_1$ of the same degree such that there is no map $PP^3 without V(F_0, F_1) -> PP^1$ that makes the diagram commute.
+
+    Let $S: PP^1 times PP^1 -> PP^3$ and let $Q = im(S)$. We want $Q cap V(F_0, F_1) = emptyset$. However, $V(Q, F_0, F_1)$ has codimension at most 3, so dimension at least 0, in particular non-empty. This comes from Krull's height theorem.
+  7. If we are given four random lines in $PP^3$, how many meets all $4$? The answer is 2.
+
+    As an exercise, consider $3$ random lines in $PP^3$, we can consider the union of all lines that touch all $3$ and show that it is a projective variety.
+]
+
+
 
