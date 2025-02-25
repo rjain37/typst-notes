@@ -112,4 +112,12 @@
 #let cup = $union$
 #let cap = $sect$
 #let mapsto = $|->$
-#let span = $"span"$
+#let span = math.op("span")
+
+#let sign = math.op("sign")
+#let argmin = math.op("arg min", limits: true)
+#let argmax = math.op("arg max", limits: true)
+
+#let Pr = math.op("Pr") 
+#let Var = math.op("Var")
+#let Cov = math.op("Cov") 
