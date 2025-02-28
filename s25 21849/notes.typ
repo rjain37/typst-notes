@@ -822,4 +822,24 @@ We say that $iota$ is a closed embedding.
 ]
 
 
+=== I skipped class again oops
+
+== Possible topics for presentation
+1. Behavior of $f: X arrow Y$:
+  1. $f(X)$ is constructible finite union of locally closed subsets $AA^2 arrow AA^2$ by $(x,y) mapsto (x, x y)$.
+  2. Upper semi-continuous. Let $rho: X arrow ZZ$. $rho$ isupper semi continuous if $forall n in ZZ$, $rho^(-1)([n, oo))$ is closed in $X$. $rho: Y -> ZZ$, $rho(y) := dim f^(-1)(y)$. Consider:
+    - $rho^(-1)([0, oo)) = Y$.
+    - $rho^(-1)([1, oo)) = "a point"$.
+    - $rho^(-1)([2, oo)) = emptyset$.
+2. Grassmannians. 
+  - $"Gr"(r; n) := {L subset.eq kk^n | dim L = r}$.
+  - $"Gr"(1; n) = PP^(n-1)$.
+  - Gr is a projective variety (Plucker coordinates)(exterior algebras)
+  - Mnev-Sturmfels universality
+3. Moduli spaces / stacks. "parameter of space objects". We can look at Chow varieties and Hilbert varieties
+4. Grobner bases (how to compute?). We can use Macaulay2.
+5. Linear algebraic groups
+6. Discriminants
+7. Polar duality
+
 
