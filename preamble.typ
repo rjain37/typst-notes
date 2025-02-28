@@ -103,21 +103,25 @@
 #let ux = $underline(x)$
 #let uy = $underline(y)$
 #let uz = $underline(z)$
-#let angled(..inputs) = {
-  $angle.l #inputs.pos().join(",") angle.r$
-}
+#let kk = $bb(k)$
 #let restriction = $harpoon.tr$
 #let ni = $in.rev$
 #let notin = $in.not$
 #let cup = $union$
 #let cap = $sect$
 #let mapsto = $|->$
-#let span = math.op("span")
 
+// SHORTHANDS
+#let angled(..inputs) = {
+  $angle.l #inputs.pos().join(",") angle.r$
+}
+
+// OPERATORS
+#let span = math.op("span")
 #let sign = math.op("sign")
 #let argmin = math.op("arg min", limits: true)
 #let argmax = math.op("arg max", limits: true)
-
 #let Pr = math.op("Pr") 
 #let Var = math.op("Var")
 #let Cov = math.op("Cov") 
+#let codim = math.op("codim")
