@@ -824,22 +824,52 @@ We say that $iota$ is a closed embedding.
 
 === I skipped class again oops
 
-== Possible topics for presentation
-1. Behavior of $f: X arrow Y$:
-  1. $f(X)$ is constructible finite union of locally closed subsets $AA^2 arrow AA^2$ by $(x,y) mapsto (x, x y)$.
-  2. Upper semi-continuous. Let $rho: X arrow ZZ$. $rho$ isupper semi continuous if $forall n in ZZ$, $rho^(-1)([n, oo))$ is closed in $X$. $rho: Y -> ZZ$, $rho(y) := dim f^(-1)(y)$. Consider:
-    - $rho^(-1)([0, oo)) = Y$.
-    - $rho^(-1)([1, oo)) = "a point"$.
-    - $rho^(-1)([2, oo)) = emptyset$.
-2. Grassmannians. 
-  - $"Gr"(r; n) := {L subset.eq kk^n | dim L = r}$.
-  - $"Gr"(1; n) = PP^(n-1)$.
-  - Gr is a projective variety (Plucker coordinates)(exterior algebras)
-  - Mnev-Sturmfels universality
-3. Moduli spaces / stacks. "parameter of space objects". We can look at Chow varieties and Hilbert varieties
-4. Grobner bases (how to compute?). We can use Macaulay2.
-5. Linear algebraic groups
-6. Discriminants
-7. Polar duality
+#pagebreak()
 
+= Rational maps
+For today and the rest of the week, we assume that every variety is irreducible. 
+
+*Warm-up*: Let $f,g: X -> Y$ be maps of varieties such that $f restriction U = g restriction U$, $exists space emptyset != U subset.eq^("open") X$, then $f = g$. 
+#proof[
+  Let $X -> X times X$ by the diagonal map $Delta$. Then let $X times X -> Y times Y$ by $f times g$. The inverse image of $Delta(Y)$ is ${x | f(x) = g(x)}$. Since they agree on an open subset and it is dense, they are actually equal.
+]
+#definition[
+  A rational map $phi : X arrow.dashed Y$ is an equivalence class of pairs $(U, phi_U)$ where we have that $nothing != U subset X$ is open and $phi_U: U -> Y$ is a morphism. Then we have $(U, phi_U) tilde (V, psi_V)$ if we have that $phi_U restriction U cap V = psi_V restriction U cap V$.
+
+  
+]
+#definition[
+  $phi: X arrow.dashed Y$ is dominant if $phi(U)$ is dense in $Y$ or some/every rep $(U, phi_U)$.
+
+  $phi$ is birational if $exists psi: Y arrow.dashed X$ such that $phi compose psi = id_Y$ and $psi compose phi = id_X$.
+
+  Two varieties are birational if there exists a birational map between them.
+]
+
+#remark[
+  In general, you cannot compose rational maps. 
+]
+#example[
+  1. $PP^(n + m)$ and $PP^n times PP^m$ are birational. This is because there is a copy of $AA^(n+m)$ in both of them.
+  2. $AA^1$ and $V(x^3 - y^2)$ are birational. Consider $t mapsto (t^2, t^3)$, or rather $(x,y) mapsto y/x$ in the opposite direction.
+  3. $PP^1$ and $V(y^2 z - x^3 - x^2 z) subset PP^2$. Take $[x: y] mapsto [x : y : frac(x^3, y^2 - x^2)]$.
+]
+
+#remark[
+  A variety $X$ is rational if it is birational to $AA^n$ for some $n$. 
+    #question[
+  Is there a non-rational variety? (Yes.)
+]
+]
+Is $phi: X arrow.dashed Y$ dominant and injective in a nonempty open subset, is it birational? This is true for characteristic zero, but false for characteristic $> 0$. 
+#remark[
+  $X$ is unirational if $exists$ dominant $AA^n arrow.dashed X$. Rational and unirational are not equivalent. There are also non unirational varieties.
+]
+#definition[
+  A rational function on $X$ is a rational map from $X arrow.dashed AA^1$. We denote
+  $
+    K(X) := {"rational functions on" X}
+  $
+  and call it the (rational) function field. 
+]
 
