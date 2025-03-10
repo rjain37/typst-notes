@@ -873,3 +873,8 @@ Is $phi: X arrow.dashed Y$ dominant and injective in a nonempty open subset, is 
   and call it the (rational) function field. 
 ]
 
+#theorem[
+  $
+    {"dominant rational maps" X arrow.dashed Y} <--> {k"-alg extensions" K(Y) subset.eq K(X)}
+  $
+]
