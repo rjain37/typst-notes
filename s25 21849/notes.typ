@@ -877,4 +877,39 @@ Is $phi: X arrow.dashed Y$ dominant and injective in a nonempty open subset, is 
   $
     {"dominant rational maps" X arrow.dashed Y} <--> {k"-alg extensions" K(Y) subset.eq K(X)}
   $
+  by the map $f mapsto (phi mapsto phi compose f)$.
+]
+#proof[
+  Let $Theta: K(Y) arrow.hook K(X)$. We may assume $Y$ is affine, $Y subset.eq AA^n$. Now look at the functions $Theta(y_1), dots, Theta(y_m)$, where $A(Y) = kk[uy]/I$ for some ideal $I$. All of the functions listed are regular on some open $U subset X$. 
+
+  So we have made a map from $A(Y) -> cal(O)_X (U)$ by $y_i mapsto Theta(y_i)$, which defines a morphism (there is some theorem that says having a map from a coordinate ring to the structure sheaf defines a morphism).
+]
+
+#corollary[
+  This bijection is an equivalence of categories:
+  $
+    {"vars and rational dominant maps"} <-> {"finitely generated field extensions over" kk}.
+  $
+]
+#corollary[
+  $X$ and $Y$ varieties. The following are equivalent:
+  1. $X$ and $Y$ are birational.
+  2. $exists thin emptyset != U subset.eq^("open") X$, $V subset.eq^("open") Y$ such that $U tilde.eq V$ isomorphic.
+  3. $K(X) tilde.eq K(Y)$.
+]
+1 to 2 can be verified. 2 to 3 uses the theorem above. 
+
+#theorem[
+  Let $f: X arrow.dashed Y$ be a dominant map. Then $f$ is generically finite (i.e. for any representative $f: U -> Y$, general fiber is finite) if and only if $K(Y) subset.eq K(X)$ is a finite extension. Further, if gen. fin. and $"char" k = 0$, then general fiber has exactly $[K(X) : K(Y)]$.
+]
+#corollary[
+  In characteristic zero, a rational dominant map that is generically one to one is birational. This is very false in positive characteristic.
+]
+#proof[of Theorem 8.8][
+  Reduce to $X, Y$ affine, $X ->^f Y$ where $X subset.eq AA^n$ and $Y subset.eq AA^m$ where $m <= n$. Reduce to $m = n-1$, where this map is now $(z_1, dots, z_n) mapsto (z_1, dots, z_(n-1))$. 
+  
+  Now we split into cases: 
+  1. $z_n in K(X) = kk[z_1, dots, z_n] slash I$ is algebraic over $K(Y)$. By definition, there is a minimal polynomial $G = a_d (z_1, dots, z_(n-1))z_n^d + dots.c + a_1 (z_1, dots, z_(n-1)) z_n + a_o (z_1, dots, z_(n-1)) in K(Y)[z_n]$. We may assume that $G in A(Y)[z_n]$.
+
+    $D_Y (a_d) != emptyset$ open in $Y$, $f$ is finite over $D(a_d)$. The discrimnant $Delta$ of $G$ will be nonzero on $Y$. In other words, on $D_y(a_d dot Delta)$, $|"fiber"| = d$.
 ]

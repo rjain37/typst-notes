@@ -125,3 +125,4 @@
 #let Var = math.op("Var")
 #let Cov = math.op("Cov") 
 #let codim = math.op("codim")
+#let char = math.op("char")
