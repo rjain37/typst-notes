@@ -913,3 +913,15 @@ Is $phi: X arrow.dashed Y$ dominant and injective in a nonempty open subset, is 
 
     $D_Y (a_d) != emptyset$ open in $Y$, $f$ is finite over $D(a_d)$. The discrimnant $Delta$ of $G$ will be nonzero on $Y$. In other words, on $D_y(a_d dot Delta)$, $|"fiber"| = d$.
 ]
+
+== Wasn't here for first part of blowups 
+#definition[
+  Let $X subset.eq AA^n$ be an affine variety, $I = angled(f_0, dots, f_m) subset A(X)$. The blowup, which we define as $tilde(X) = B ell_I X$, is the subvariety of $X times PP^m (subset AA^n times PP^m)$ given by $u$-homogeneous elements of $ker(kk[ux][underline(u)] ->> A(X)[t I] subset.eq A(X)[t])$. $pi: tilde(X) -> X$ the "blow-down" map.
+]
+
+#proposition[
+  $B ell_I X$ is independent of the choice of generators $f_0, dots, f_m$.
+]
+#proof[
+  $B ell_(angled(f_0, dots, f_m)) X tilde.eq B ell_(angled(f_0, dots, f_m, g)) X$.
+]

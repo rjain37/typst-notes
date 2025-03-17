@@ -126,3 +126,6 @@
 #let Cov = math.op("Cov") 
 #let codim = math.op("codim")
 #let char = math.op("char")
+#let poly = math.op("poly")
+
+#let rule = line(length:100%)
