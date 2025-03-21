@@ -925,3 +925,97 @@ Is $phi: X arrow.dashed Y$ dominant and injective in a nonempty open subset, is 
 #proof[
   $B ell_(angled(f_0, dots, f_m)) X tilde.eq B ell_(angled(f_0, dots, f_m, g)) X$.
 ]
+#proposition[
+  $I = angled(f_0, dots, f_m) subset A(X)$. Then $tilde(X) = B ell_I X tilde.eq$ closure in $X times PP^m$ of the image of 
+  $
+    (X without V(I)) -> X times PP^m
+  $
+  given by $
+             x mapsto (x, [f_0(x), dots, f_m(x)]).
+           $
+]
+#proof[
+  1. $overline(X) subset.eq tilde(X)$: 
+  2. $tilde(X) subset.eq overline(X)$: 
+]
+== im retarded
+= Smoothness/Nonsingularness
+
+What is a tangent vector? Rather, for $0 in X subset.eq AA^n$, how can we find a tangent vector to $X$?
+1. Something in the tangent space?
+#example[
+  Suppose $char k != 2$, $X = V((x-1)^2 + (y-1)^2 - 2)$. Then we can say that 
+  $
+    T_0 X = V(x + y).
+  $
+  But how do we get this? We can see that 
+  $
+    (x-1)^2 + (y-1)^2 - 2 = x^2 - 2x + y^2 - 2y.
+  $
+  And we see $-2(x+y)$ is the gradient of this function or something idk.
+]
+#definition[
+  For $0 in X subset.eq AA^n$, 
+  $
+    T_0 X := V(f^"linear" | f in I(X)).
+  $
+  For $p in X subset.eq AA^n$, 
+  $
+    T_p K := ker Jac[frac(partial f_i, partial x_j) (p)]_(i, j)
+  $
+  for any generating set $f_1, dots, f_m$ of $I(X)$.
+]
+#definition[
+  Let $A$ be a $k$-alg and $M$ an $A$-module. Then 
+  $
+    Der_k (A, M) := {delta in Hom_k (A, M) | forall f, g in A, delta(f g) = f delta(g) + g delta(f)}.
+  $
+]
+#example[
+  Let $A  = k[x, y]$ and $M = k[x, y] slash angled(x-a,y-b)$ for $a, b in k$. Then this is isomorphism by $k$ with the group action of acting by $a$ on $x$.
+
+  Then 
+  $
+    Der_k (A, M) = k[frac(partial, partial x)|_(x = a\ y = b), frac(partial, partial y)|_(x = a\ y = b)].
+  $
+  So for $delta in A$, we have $delta(x^n) = n x^(n-1) dot delta(x) = n a^(n-1) delta(x)$.
+]
+#definition[
+  Zariski cotangent space of $p in X$ is $frak(m) slash frak(m)^2 tilde.eq frak(m) times.circle A(X) slash frak(m)$. 
+]
+#proposition[
+  Let $0 in X subset.eq AA^n$. Then
+  $
+    T_0 X tilde.eq Hom_k (frak(m) slash frak(m)^2 , k) tilde.eq Der_k (A(X), A(X) slash frak(m) tilde.eq k)
+  $
+  where $frak(m) = angled(overline(x)_1, dots, overline(x)_n)$. We can accomplish this with the maps 
+  $
+    v mapsto (overline(f) mapsto f^"linear" (v))
+  $
+  from first to second and 
+  $
+    delta mapsto (overline(f) mapsto delta(f))
+  $
+  for third to second.
+]
+#proof[
+  Let $phi(delta) = overline(f) mapsto delta(f)$. Then $delta(frak(m)^2) = 0$ implies that $delta = 0$. Also $delta(1) = 0$, so it is injective. 
+
+  I'm too lazy to write this whole thing out
+]
+#remark[
+  Note that $dim T_p X >= codim_X p$.
+]
+#definition[
+  $X$ variety is nonsingular at a point $p in X$ if 
+  $
+    dim T_p X = codim_X p.
+  $
+]
+#proposition[
+  $p in X$ is nonsingular if and only if $dim T_p X <= codim_X p$. Also if and only if $T_p X = T C_p X$. Also if and only if $dim (frak(m) / frak(m)^2) = dim cal(O)_(X, p)$. Also if and only if $rank Jac [(frac(partial f_i, partial x_j) (p))]_(i, j) = n - codim_X p$ when $X subset.eq AA^n$.
+]
+
+
+
+
