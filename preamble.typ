@@ -119,6 +119,7 @@
 // OPERATORS
 #let span = math.op("span")
 #let sign = math.op("sign")
+#let rank = math.op("rank")
 #let argmin = math.op("arg min", limits: true)
 #let argmax = math.op("arg max", limits: true)
 #let Pr = math.op("Pr") 
@@ -127,5 +128,8 @@
 #let codim = math.op("codim")
 #let char = math.op("char")
 #let poly = math.op("poly")
+#let Jac = math.op("Jac")
+#let Der = math.op("Der")
+#let Hom = math.op("Hom")
 
 #let rule = line(length:100%)
