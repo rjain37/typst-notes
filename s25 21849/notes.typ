@@ -1016,6 +1016,46 @@ What is a tangent vector? Rather, for $0 in X subset.eq AA^n$, how can we find a
   $p in X$ is nonsingular if and only if $dim T_p X <= codim_X p$. Also if and only if $T_p X = T C_p X$. Also if and only if $dim (frak(m) / frak(m)^2) = dim cal(O)_(X, p)$. Also if and only if $rank Jac [(frac(partial f_i, partial x_j) (p))]_(i, j) = n - codim_X p$ when $X subset.eq AA^n$.
 ]
 
+#example[
+  $X = V(x^3 + x^2 - y^2) subset AA^2$. $T C_0 X = V(x^2 - y^2)$. $T_0 X = AA^2$. 
+]
 
+#remark[
+  A Noetherian ring $(R, frak(m))$ is a regular local ring if $dim frak(m) slash frak(m)^2 = dim R$.
+]
+#theorem[
+  Regular local rings are UFDs.
+]
+#proof[
+  Something something Nakayama.
+]
+#proposition[
+  Let $p in X subset.eq AA^n$ is nonsingular if $rank Jac_p (f_1, dots, f_m) >= n - codim_X p$ for any $f_1, dots, f_m$ such that $V(f_1, dots, f_m) = X$.
+]
 
-
+#exercise[
+  Suppose $Y subset PP^n$, $angled(F_1, dots, F_m) = I(Y)$. To test $X subset AA^n$ is nonsingular, 
+  $
+    sum_(i=0)^n frac(partial F, partial x_i) = (deg F) F.
+  $ 
+]
+#theorem[
+  Let $X$ be a variety. Then the nonsingular loci is open and nonempty in $X$. 
+]
+#proof[
+  Reduce to $X$ being affine. $X$ is irreducible, $X subset.eq AA^n$, $V(f_1, dots, f_m) = X$. Then 
+  $
+    rank [Jac_p (f_1, dots, f_m)] >= n - dim X
+  $
+  so $X_("sing") = V(codim X + 1 "minors of" Jac) cap X$.
+]
+#lemma[
+  Any irreducible variety $X$ is birational to an irreducible hypersurface $V(f) subset AA^n$.
+]
+#proof[
+  Take $K(X) slash k$ which is separable and finitely generated and separably generated. So there exists $x_1, dots, x_d in K(X)$ such that $K(X) supset k(x_1, dots, x_d)$ where $d = dim X$. Then 
+  $
+    K(X) tilde.eq (k(x_1, dots, x_d)[y])/(f(y))
+  $
+  where the coefficients of $f$ are in $x_1, dots, x_d$. 
+]
