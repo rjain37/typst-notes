@@ -1059,3 +1059,45 @@ What is a tangent vector? Rather, for $0 in X subset.eq AA^n$, how can we find a
   $
   where the coefficients of $f$ are in $x_1, dots, x_d$. 
 ]
+
+#definition[
+  $PP$ irreducible smooth variety, $X, Y$ irreducible subvarieties of $PP$, and $X cap Y supset Z$ an irreducible comp. We say $X$ and $Y$ intersect transversally at $p in Z$ if
+  1. $p$ is smooth on $X$ and $Y$. 
+  2. $codim_(T_p PP) T_p X + codim_(T_p PP) T_p Y = codim_(T_p PP) (T_p X cap T_p Y)$.
+]
+#pagebreak()
+#lemma[
+  If $X sect.and Y$ at $p in Z$, then $p$ is nonsingular on $Z$ and $codim Z = codim X + codim Y$.
+]
+#proof[
+  Reduce to $PP = AA^n$. Then $I(X) = angled(f_1, dots, f_k)$ and $I(Y) = angled(g_1, dots, g_ell)$. Then 
+  $
+    rank Jac_p (f_1, dots, f_k, g_1, dots, g_ell) <= codim T_p Z = rank Jac_p (f_1, dots, f_k) + rank Jac_p (g_1, dots, g_ell)\
+    codim X + codim Y <= codim T_P Z <= codim Z <= codim X + codim Y.
+  $
+  Therefore they are all equal. 
+]
+#theorem[Bertini][
+  Fix $X subset.eq PP^n$. Then a general hyperplane $H subset.eq PP^n$ intersects $X$ transversally at all nonsingular points in $X$.
+]
+#proof[
+  Let $Gamma = {(x, H) | H "not transversally intersecting" X "at" x} subset.eq X_("sm") times (PP^n)^(or.curly)$. We claim this is closed. 
+
+  Fact 1: Let $X ->> Y$ and general fiber has $dim X - dim Y$. Then
+  $
+    dim Gamma = dim X + codim X _ 1 = n-1.
+  $
+  So then 
+  $
+    dim pi_2(Gamma) <= n-1
+  $
+  which shows us that $pi_2(Gamma)  subset.neq (PP^n)^(or.curly)$. Then another fact is that image of a morphism of varieties is constructible. 
+]
+#remark[
+  Let $f : X -> PP^n$ and $X$ smooth. For general $H subset.eq PP^n$, is $f^(-1)(H)$ smooth? This is true for $char = 0$ and false otherwise. 
+]
+#remark[
+  If $X subset.eq PP^n$ is smooth and irreducible with $dim X > 1$. Then for general $H subset.eq PP^n$, $X cap H$ is smooth, but is it irreducible?
+
+  This is true but very hard to prove.
+]
