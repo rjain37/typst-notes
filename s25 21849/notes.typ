@@ -1101,3 +1101,36 @@ What is a tangent vector? Rather, for $0 in X subset.eq AA^n$, how can we find a
 
   This is true but very hard to prove.
 ]
+
+= Hilbert functions
+
+Given $X subset.eq PP^n$, what is $deg(X subset.eq PP^n)$?
+
+Requirements:
+1. $deg (X "finite") = \# |X|$.
+2. $deg (V(F)) = deg(F)$.
+5. $(deg X)(deg Y) = deg(X cap Y)$ when $X$ transversally intersects $Y$.
+6. $deg(I(X) + I(Y)) = sum_(z "irred comp" X cap Y) "mult"_z (deg z)$.
+idk i cant read the rest of the board
+#definition[
+  Let $S = k[x_0, dots, x_n]$ and $I$ a homogeneous ideal. The Hilbert function of the ideal $I$ is defined as $h_I : ZZ_(>= 0) -> ZZ_(>= 0)$ where
+  $
+    h_I(d) := dim_k (S slash I)_d.
+  $
+  For $X subset.eq PP^n$, $h_X(d) := h_(I(X))(d)$.
+]
+#example[
+  1. $h_(PP^n) (d) = binom(d + n, n)$.
+  2. $h_("pt") (d) = 1$.
+  3. Suppose $V(I) = emptyset$. Then $h_I (d) = 0$ for $d >>0$. 
+  4. Let $I = angled(x_0^3, x_0^2 x_1) subset.eq k[x_0, x_1]$.
+]
+#lemma[
+  Let $I, J subset.eq S$. Then $h_(I cap J) + h_(I + J) = h_I + h_J$.
+]
+#proof[
+  $0 -> S slash (I cap J) -> S slash I plus.circle S slash J -> S slash (I + J) -> 0$. The first map is $f mapsto (f, f)$ and the second is $(f,g) mapsto f - g$.
+]
+#lemma[
+  Let $I subset.eq S$. Let $$ be homogeneous at nonzero divisors on $(S slash I)_d$ for $d >>0 $. Then $h_(I + angled(f)) = h_I (d) - h_I (d - deg f)$. 
+]
