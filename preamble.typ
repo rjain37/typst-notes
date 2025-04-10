@@ -94,8 +94,7 @@
 	}
 	outline(
 		title: "Table of Contents",
-		indent: 1.5em,
-		fill: repeat[]
+		indent: 1.5em
 	)
 }
 
@@ -113,7 +112,7 @@
 
 // SHORTHANDS
 #let angled(..inputs) = {
-  $angle.l #inputs.pos().join(",") angle.r$
+  $lr(angle.l #inputs.pos().join(",") angle.r)$
 }
 
 // OPERATORS

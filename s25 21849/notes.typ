@@ -1132,5 +1132,49 @@ idk i cant read the rest of the board
   $0 -> S slash (I cap J) -> S slash I plus.circle S slash J -> S slash (I + J) -> 0$. The first map is $f mapsto (f, f)$ and the second is $(f,g) mapsto f - g$.
 ]
 #lemma[
-  Let $I subset.eq S$. Let $$ be homogeneous at nonzero divisors on $(S slash I)_d$ for $d >>0 $. Then $h_(I + angled(f)) = h_I (d) - h_I (d - deg f)$. 
+  Let $I subset.eq S$. Let $f in S$ be a nonzerodivisor on $(S slash I)_d$ for $d >>0$. Then $h_(I + angled(f)) = h_I (d) - h_I (d - deg f)$. 
+]
+#proof[
+  Consider the sequence $0 -> (S slash I)_(d - deg f) -> (S slash I)_d -> (S slash I + f)_d -> 0$.
+]
+
+#pagebreak()
+#theorem[
+  Let $I subset.eq S$ be homoegenous. There exists a unique Hilbert polynomial $chi_I (t)$ such that $h_I (d) = chi_I (d)$ for $d >>0$. Moreover $deg chi_I (t) = dim V(I) subset.eq PP^n$. Note that we will say $deg 0 := -1$ and $dim emptyset := -1$.
+]
+#definition[
+  A polynomial $P(t) in QQ(t)$ is numerical if $P(d) in ZZ$ for all $d >> 0$, $d in ZZ$.
+]
+#lemma[
+  1. If $P(t)$ numerical of degree $r$, then there exists unique $c_0, dots, c_r in ZZ$ such that
+  $
+    P(t) = c_r binom(t, r) + c_(r-1) binom(t, r-1) + dots.c + c_0.
+  $
+  2. If $f: ZZ -> ZZ$ such that $Delta f (d) := f(d+1) - f(d)$ is a numerical polynmoial for $d >> 0$, then so is $f$ for $d >> 0$. 
+]
+#proof[
+  1. Induct on $deg P$. 
+  $
+    P &= c_r binom(t, r) + dots.c + c_1 binom(t, 1) + c_0 \
+    Delta P &= c_r binom(t, r-1) + dots.c + c_1.
+  $
+  In particular, $P(d) in ZZ$ for all $d$.
+  2. Let $Q(t)$ such that $Q(d) = Delta f(d)$ for all $d >> 0$. 
+  $
+    Q(t) &= c_r binom(t, r) + dots.c + c_1 binom(t, 1) + c_0 \
+    P(t) &= c_r binom(t, r+1) + dots.c + c_1 binom(t, 2) + c_0 binom(t, 1) + C \
+    Delta (P-f) (d) &= 0.
+  $
+  This last statement implies $P-f$ is a constant. Now we induct on $V(I)$.
+    - Base case: $V(I) = emptyset$. Then $chi_I = 0$.
+    - Now pick $f$ homogeneous linear such that the lemma applies. So the lemma then tells us that  $Delta h_I (d) = h_(I + angled(f)) (d + 1) = chi_(I + angled(f)) (d + 1)$. We would be done, but this relies on the claim that $dim  V(I  + angled(f)) = dim V(I) - 1$.
+
+    So let $f$ be a nonzerodivisor, $S slash angled(I_d)$, $dim  V(angled(I_d) + f)= dim V(I_d) - 1$. We claim that in fact $dim V(I_d) = dim V(I)$. 
+]
+#definition[
+  For $I subset.eq S$, $deg(I) := "coefficient of" binom(t, dim V(I)) "in" chi_I $. This is also the leading coefficient of $t^(dim V(I))$. Then $deg(X subset.eq PP^n) := deg I(X)) dot (dim V(I))!$.
+]
+#example[
+  1. $chi_(PP^n) (d) = binom(d + n, n) = h_(PP^n) (d)$. Also $deg(PP^n subset.eq PP^n) = 1$.
+  2. $$
 ]
