@@ -130,5 +130,18 @@
 #let Jac = math.op("Jac")
 #let Der = math.op("Der")
 #let Hom = math.op("Hom")
+#let pmod-spacing = state("pmod-spacing", 2em/9)
 
+#show math.equation.where(block: true): it => {
+  pmod-spacing.update(1em)
+  it
+}
+#show math.equation.where(block: false): it => {
+  pmod-spacing.update(2em/9)
+  it
+}
+
+#let pmod(m) = context h(pmod-spacing.get()) + $(mod med #m)$
+
+// MISC
 #let rule = line(length:100%)
