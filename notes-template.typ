@@ -1,5 +1,6 @@
 #set heading(numbering: "1.")
 #set enum(numbering: "1.a)")
+#set math.equation(numbering: none)
 
 #import "@preview/ilm:1.4.0": *
 #import "preamble.typ" : *
