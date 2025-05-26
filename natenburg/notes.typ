@@ -125,6 +125,25 @@ Suppose we buy a call _and_ a put at 2.70 and 3.70 respectively. We have paid a 
 
 
 = Introduction to Theoretical Pricing Models
+One important thing to consider is that when you buy an option, the fact that you're bullish on the underlying doesn't mean everything. It's possible that someone who buys an option can it be correct that the underlying will tend to the direction that he wants, but it may not do it as fast as he expected. 
 
+== Word About Models
+The thing about models is that they make some assumptions about the real world in order to make a model. Models are not meant to exactly replicate what happens in the real world, but at least be a close approximation. This can mean something some sort of construction of a real airplane that you see in a museum or a mathmematical model.
 
+In options pricing, one famous equation is the Black-Scholes model. Black Scholes is used for European options where we have the assumption that no early exercise is permitted on non-dividend paying stocks. However, after its introduction, people realized that most stocks do pay dividends, so they added a dividend component. It may seem that Black Scholes, with its assumption of no early exercise, is poorly suited for most markets. However, it has proven so easy to use that many traders do not believe the more accurate values derived from an American option pricing model, which allows for the possibility of early exercise, is worth the additional effort. 
 
+There are different versions of the model, and it is worth making a few comments about these differences. 
+
+== Black-Scholes Model
+The values needed for Black-Scholes are 
+1. The option's exercise price.
+2. The amount of time remaining to expiration. 
+3. The current price of the underlying contract. 
+4. The risk-free interest rate over the life of the option. 
+5. The volatility of the underlying contract. 
+
+The current price of the underlying contract is hard to define because at any given time, there is going to be a bid and ask price. Which one we use depends on whether we are long or short. 
+
+The hardest part here to quantify is volatility, so we will dedicate a whole chapter to doing that.
+
+= Volatility
