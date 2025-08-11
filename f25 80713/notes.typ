@@ -3,16 +3,16 @@
 #set math.equation(numbering: none)
 
 #import "@preview/ilm:1.4.0": *
-#import "preamble.typ" : *
+#import "../preamble.typ" : *
 #show: thmrules
 
 #show: ilm.with(
-  title: [Class Name],
+  title: [Category Theory],
   author: "Rohan Jain",
   date: datetime(year: 2025, month: 08, day: 25),
   preface: [
     #align(center + horizon)[
-      some smartass comment here
+      I LOVE LEAN #emoji.heart.purple
     ]
   ],
   table-of-contents: none,
