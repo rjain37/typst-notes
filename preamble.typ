@@ -1,5 +1,5 @@
 #import "@preview/ctheorems:1.1.3": *
-#import "@preview/commute:0.2.0": node, arr, commutative-diagram
+#import "@preview/commute:0.3.0": node, arr, commutative-diagram
 #show: thmrules
 
 
@@ -130,6 +130,7 @@
 #let Jac = math.op("Jac")
 #let Der = math.op("Der")
 #let Hom = math.op("Hom")
+#let Ob = math.op("Ob")
 #let pmod-spacing = state("pmod-spacing", 2em/9)
 
 #show math.equation.where(block: true): it => {
