@@ -1,6 +1,5 @@
 #set heading(numbering: "1.")
 #set enum(numbering: "1.a)")
-#set math.equation(numbering: none)
 
 #import "@preview/ilm:1.4.0": *
 #import "../preamble.typ" : *
@@ -17,7 +16,7 @@
   ],
   table-of-contents: none,
 )
-
+#set math.equation(numbering: none)
 #pagebreak()
 #toc
 #counter(page).update(1)
@@ -45,4 +44,14 @@
 ]
 #proof[
   $d=1$ is known. Coordinate wise application of the $d=1$ case shows that $(RR^d, | dot |)$ is complete.
+]
+= Continuity
+#definition[
+  Let $D subset RR^d$, $F: D -< RR^ell$ is continuous at a point $a in D$ if $ forall epsilon >0$, there is $delta > 0$ such that for all $x in D$, 
+  $
+    |x - a| < delta &=> |F(x) - F(a)| < epsilon.
+  $
+]
+#lemma[
+  $F$ being continuous at $a$ is equivalent to $forall (x_n)$ in $D$, $x_n -> A => F(x_n) -> F(a)$. 
 ]

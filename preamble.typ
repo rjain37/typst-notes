@@ -114,6 +114,9 @@
 #let angled(..inputs) = {
   $lr(angle.l #inputs.pos().join(",") angle.r)$
 }
+#let inv(input) = {
+  $#input^(-1)$
+}
 
 // OPERATORS
 #let span = math.op("span")
@@ -131,6 +134,8 @@
 #let Der = math.op("Der")
 #let Hom = math.op("Hom")
 #let Ob = math.op("Ob")
+#let Aut = math.op("Aut")
+#let Set = math.op("Set")
 #let pmod-spacing = state("pmod-spacing", 2em/9)
 
 #show math.equation.where(block: true): it => {

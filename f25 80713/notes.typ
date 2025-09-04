@@ -1,6 +1,5 @@
 #set heading(numbering: "1.")
 #set enum(numbering: "1.a)")
-#set math.equation(numbering: none)
 
 #import "@preview/ilm:1.4.0": *
 #import "../preamble.typ" : *
@@ -17,6 +16,8 @@
   ],
   table-of-contents: none,
 )
+#set math.equation(numbering: none)
+
 
 #pagebreak()
 #toc
@@ -99,3 +100,71 @@ Computations:
 #example[
   - Set, the category of sets (& functions). 
 ]
+
+#definition[Monoid][
+  A monoid $(M, *)$ consists of: 
+  - a set $M$
+  - a binary operation $*: M times M -> M$ 
+  - an identity element $e in M$ such that $forall x in M$, $e * x = x * e = x$.
+]
+#definition[Monoid Homomorphism][
+  A monoid homomorphism $f: M -> N$ is a function satisfying 
+  - $f(x y) = f(x) f(y)$.
+  - $f(e) = e$.
+]
+#definition[Functor][
+  A functor $F: cal(C) -> cal(D)$ is a function satisfying 
+  - $F(A) in cal(D)$ for all $A in cal(C)$.
+  - $F(f): F(A) -> F(B)$ for all $f: A -> B$ in $cal(C)$.
+  - $F(g compose f) = F(g) compose F(f)$ for all $f: A -> B$ and $g: B -> C$ in $cal(C)$.
+  - $F(id_A) = id_(F(A))$ for all $A in cal(C)$.
+]
+
+== 09/02/2025
+Two "sorts" of categories:
+- "concrete" categories: sets with smoe sort of familiar structure (groups, rings, modules, etc.)
+- "abstract" categories: $bb(1)$, $bb(2)$, $bb(3)$, etc. More formal symbols than not.
+
+#definition[Endomorphism][
+  An endomorphism $f: A -> A$ is a morphism from an object to itself.
+]
+
+New categories from old:
+1. Product category. 
+  - input: two categories $cal(C)$ and $cal(D)$
+  - output: $cal(C) times cal(D)$
+  - objects: $(A, B)$ where $A in Ob(cal(C))$ and $B in Ob(cal(D))$
+  - morphisms: $(f, g)$ where $f: A -> A'$ in $cal(C)$ and $g: B -> B'$ in $cal(D)$
+  - composition: $(f, g) compose (f', g') = (f compose f', g compose g')$
+  - identity: $(id_A, id_B)$
+
+  Projection functors on $cal(C) times cal(D)$:
+  - $pi_1: cal(C) times cal(D) -> C$, $pi_2: cal(C) times cal(D) -> cal(D)$.
+  - on objects: $pi_1((A, B)) = A$
+  - on morphisms: $pi_1((f, g)) = f: A -> A'$.
+2. Slice categories, coslice categories
+  - input: a category $cal(C)$ and an object $X in Ob(cal(C))$
+  - output: $cal(C)slash X$ or $X slash cal(C)$
+  description of coslice:
+  - objects: pair $(A, f)$, where $A in Ob(cal(C))$ and $f: A -> X$ in $cal(C)$
+  - morphisms: from $(A, f) -> (B, g)$: morphism $k: A ->B$ of $cal(C)$ such that $k compose f = g$.
+  - composition: $(A, f) ->^k (B, g) ->^l (C, h)$ is $(A, f) ->^(l compose k) (C, h)$. We can check that $(l compose k) compose f = h$. The TLDR for this is that you can copy and paste commutative diagrams and get another commutative diagram. 
+  
+#example[Coslice][
+  Let $cal(C) = Set$, $X = 1 = {*}$. So coslice $X slash cal(C) = 1 slash Set = ?$.
+  - objects: pairs $(A, f)$ of a set $A$ and a function $f: 1-> A$.
+  - morphisms: functions $k$ such that $k compose f = g$.
+  Elements of sets categorically. $A$ is a set. How do we express $a in A$ in terms of the category $Set$? 
+  $
+    "elements of" A &<--> "functions "f:1 -> A \
+    a in A &<--> f: 1 -> A, f(*) = a \
+    f(x) in A &<--> f: 1->A.
+  $
+]
+3. Opposite category.
+  - input: a category $cal(C)$
+  - output: $cal(C)^op$
+  - objects of $cal(C)^op$: $A^*$ for $A in cal(C)$.
+  - morphisms of $cal(C)^op (A^*, B^*)$: $f^*$ for $f: A -> B$ in $cal(C)$.
+  - composition: $(f^* compose g^*) = (g compose f)^*$
+  
