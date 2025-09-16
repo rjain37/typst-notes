@@ -136,6 +136,12 @@
 #let Ob = math.op("Ob")
 #let Aut = math.op("Aut")
 #let Set = math.op("Set")
+#let op = math.op("op")
+#let Mon = math.op("Mon")
+#let Top = math.op("Top")
+#let Cat = math.op("Cat")
+#let List = math.op("List")
+
 #let pmod-spacing = state("pmod-spacing", 2em/9)
 
 #show math.equation.where(block: true): it => {

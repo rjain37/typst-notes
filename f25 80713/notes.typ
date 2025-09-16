@@ -122,7 +122,7 @@ Computations:
 
 == 09/02/2025
 Two "sorts" of categories:
-- "concrete" categories: sets with smoe sort of familiar structure (groups, rings, modules, etc.)
+- "concrete" categories: sets with some sort of familiar structure (groups, rings, modules, etc.)
 - "abstract" categories: $bb(1)$, $bb(2)$, $bb(3)$, etc. More formal symbols than not.
 
 #definition[Endomorphism][
@@ -168,3 +168,57 @@ New categories from old:
   - morphisms of $cal(C)^op (A^*, B^*)$: $f^*$ for $f: A -> B$ in $cal(C)$.
   - composition: $(f^* compose g^*) = (g compose f)^*$
   
+== 09/04/2025
+Examples of functors between concrete categories:
+1. Forgetful functors. E.g. $U: "Mon" -> Set$. $U(M) = M$. And if $f: M->N$ is a monoid homomorphism. Then $U(f): U M -> U N$, so we just take $U(f) = f$. Then we just have to check that $U(g compose f) = U(g) compose U(f)$ but this is obvious. There are other similar examples like $"Vect"_k ->Set$ or $"Top" -> Set$. Basically it's just "forgetting" some sort of structure from the original category.
+2. Free functors. E.g. $F: Set -> "Mon"$ which is the free monoid functor. 
+
+  Let $A$ be a set, $"List"(A) = {"strings" a_1, dots, a_n | n >= 0, a_i in A}$. So if $A  = {"a", "b", "c"}$, then we have that 
+  $
+    "List"(A) = {"<>", "a", "b", "c", "aa", "ab", "ac"...}.
+  $
+  Define concatenation as $dot$ where 
+  $
+    (a_1 a_2 dots a_n) dot (b_1 b_2 dots b_m) = (a_1 a_2 dots a_n b_1 b_2 dots b_m).
+  $
+  We claim that $"List"(A)$ is a monoid with unit $"<>"$. Call that monoid $F A in "Mon"$. 
+
+  On morphisms: given $f: A->B$, get monoid homomorphism $F(f) = F A -> F B$, we define 
+  $
+    F(f)(a_1 a_2 dots a_n) = f(a_1) f(a_2) dots f(a_n).
+  $
+  We can also check that $F(f compose g) = F(f) compose F(g)$ and $F(id_A) = id_(F A)$.
+
+#definition[Contravariant Functor][
+  A contravariant functor from $cal(C)$ to $cal(D)$ is a functor $F: cal(C)^op -> cal(D)$.
+]
+
+*Universal Mapping Property*
+
+Idea: universal property of $X$ is a description of morphisms into/out of $X$. 
+
+== 09/11/2025
+*Natural Transformations*
+
+Let $cal(C)$ and $cal(D)$ be categories, $F, G: cal(C) -> cal(D)$. A natural transformation $alpha: F->G$ consists of components $alpha_A: F(A) -> G(A)$ for each $A in cal(C)$, such that for any $f: A -> B$ in $cal(C)$, we have that $G(f) compose alpha_A = alpha_B compose F(f)$. This latter condition is called the naturality condition.
+
+#definition[
+  The category of graphs is $[J^op, Set]$. The objects of graphs are all the functors $F: J^op -> Set$, which consists of:
+    - a set $F(0)$ "vertices"
+    - a set $F(1)$ "edges"
+    - a function $F(sigma): F(1) -> F(0)$ "source"
+    - a function $F(tau): F(1) -> F(0)$ "target"
+]
+
+#definition[
+  A category $cal(C)$ is small if $Ob(cal(C))$ and every $cal(C)(A, B)$ is a set.
+
+  Examples of small categories: $bb(2)$, $J$.
+
+  Large or non-small categories: $Set$, $Mon$, $Top$.
+]
+
+
+#definition[
+  $Cat$ is the category of small categories. The objects of $Cat$ are small categories, and the morphisms are functors.
+]
