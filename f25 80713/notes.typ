@@ -222,3 +222,49 @@ Let $cal(C)$ and $cal(D)$ be categories, $F, G: cal(C) -> cal(D)$. A natural tra
 #definition[
   $Cat$ is the category of small categories. The objects of $Cat$ are small categories, and the morphisms are functors.
 ]
+
+= Limits
+== 09/16/2025
+We start by talking about the construction of objects. For sets $A, B$, we can form:
+- Disjoint union $A + B$, which is a coproduct (colimit).
+- Cartesian product $A times B$, which is a product (limit).
+- Set of functions $B^A$, which is exponential (adjunctions).
+*Products* of sets. 
+#definition[
+  Let $A, B$ be sets. Their Cartesian product $A times B$ is the set of pairs $(a, b)$ where $a in A$ and $b in B$. 
+]
+We write $pi_1: A times B -> A$ and $pi_2: A times B -> B$ for the projection maps.
+
+What is UMP of $A times B$? For a set $S$, giving a function $f: S -> A times B$ is the same thing as giving for each $s in S$, an element $f(s) in A times B$, which is the same thing as giving each $s in S$ an element $a(s) in A$ and an element $b(s) in B$. Explicitly, $a = pi_1 compose f$ and $b = pi_2 compose f$. 
+
+*UMP of $A times B$*
+
+For any set $S$ and $f_1: S->A$ and $f_2: S->B$, there is a unique $u: S -> A times B$ such that $f_1 = pi_1 compose u$ and $f_2 = pi_2 compose u$. 
+
+#definition[
+  $cal(C)$ a category, $A, B in cal(C)$. A diagram $A <-_(p_1) P ->_(p_2) B$ is a product diagram if: for any object $X$ and $f_1: X->A$ and $f_2: X->B$, there is a unique $u: X -> P$ such that $f_1 = p_1 compose u$ and $f_2 = p_2 compose u$. 
+]
+
+Terminology: 
+- $p_1, p_2$ are "projections" and $P$ is the "product" of $A$ and $B$.
+- $u: X->P$ is the map induced by $f_1, f_2$. Write $u = angled(f_1, f_2)$ or $u = (f_1, f_2)$.
+- $P$ is "the product" of $A$ and $B$, but:
+  - being "a product" is a property of the whole diagram and not just a property of $P$,
+  - "the" product may not be unique,
+  - it also may not exist. 
+
+#definition[
+  Given $cal(C)$, and $A,B in cal(C)$, define the double slice category $cal(C) slash (A, B)$ by:
+  - objects: ($X in cal(C)$, $f_1; X->A$, $f_2: X->B$). That is, $A <-_(f_1) X ->_(f_2) B$.
+  - morphisms: from $(X, f_1, f_2)$ to $(X', f_1 ', f_2 ')$ is a morphism $f: X->X'$ such that $f compose f_1 = f_1 '$ and $f compose f_2 = f_2 '$. 
+]
+
+Fact: a diagram in $cal(C)$ $A <-_(p_1) P ->_(p_2) B$ is a product diagram iff in $cal(C) slash (A, B)$, it is a terminal object: for every object of $cal(C) slash (A, B) ni (A <-_(p_1) P ->_(p_2) B)$, there is a unique morphism of $cal(C) slash (A, B)$ from it to $(A <-_(p_1) P ->_(p_2) B)$.
+
+#proposition[
+  $cal(D)$ category. If $X, Y in cal(D)$ are both terminal objects, then there is a unique isomorphism $X -> Y$.
+]
+#proof[
+  Get (unique) morphism $f: X->Y$ since $Y$ is terminal. Get (unique) morphism $g: Y->X$ since $X$ is terminal. We have that $g compose f: X->X$ and want to show that it is the identity. But since $X$ is terminal, there is only one map from $X->X$, so therefore $g compose f = id_X$. Likewise with $f compose g$ and $id_Y$. Therefore, $f$ is an isomorphism with $g$ as its inverse.
+]
+"Product diagrams are unique up to unique isomorphism."
