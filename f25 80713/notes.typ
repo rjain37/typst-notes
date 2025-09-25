@@ -268,3 +268,145 @@ Fact: a diagram in $cal(C)$ $A <-_(p_1) P ->_(p_2) B$ is a product diagram iff i
   Get (unique) morphism $f: X->Y$ since $Y$ is terminal. Get (unique) morphism $g: Y->X$ since $X$ is terminal. We have that $g compose f: X->X$ and want to show that it is the identity. But since $X$ is terminal, there is only one map from $X->X$, so therefore $g compose f = id_X$. Likewise with $f compose g$ and $id_Y$. Therefore, $f$ is an isomorphism with $g$ as its inverse.
 ]
 "Product diagrams are unique up to unique isomorphism."
+== 09/18/2025
+#theorem[
+  $cal(C)$ has finite products if and only if $cal(C)$ has binary products and a terminal object.
+]
+#proof[sketch][
+
+  $==>$:  binary products, terminal object are finite products
+
+  $<==$: Given a finite family $(A_i)_(i in I)$, need to build a product.
+
+  if $I = emptyset$: terminal object.
+
+  if $|I| = 1$: then $A$ is the product of $(A)$.
+
+  if $|I| = 2$: binary product.
+]
+#colbreak()
+*Equalizers*
+
+#definition[
+  Given $A arrows.rr_g^f B$, form $E = {a in A | f(a) = g(a)} subset.eq A$ and the inclusion map $e: E ->A$ defined as $e(a) = a$.
+
+  In $E ->^e A arrows.rr_g^f B$, we have $f compose e = g compose e$. If FINISH LATER
+]
+#definition[
+  $cal(C)$ a category, $(A arrows.rr_g^f B) = P$ "parallel pair" in $cal(C)$. A fork on $P$ is $(E, e)$ where $E ->^e A arrows.rr_g^f B$ such that $f compose e = g compose e$. 
+
+  A fork $E ->^e P$ is an equalizer (diagram) if for any $X->^f A$ such that $f compose h = g compose h$, there is a unique $u$ such that $e compose u = h$.
+ 
+]
+
+== 09/23/2025
+#definition[
+  A commutative square is called a pullback if for every $T$, $q_1: T->X$, $q_2: T->Y$ such that $f compose q_1 = g compose q_2$, there is a unique $u: T->P$ such that $p_1 compose u = q_1$ and $p_2 compose u = q_2$.
+
+ $
+   #align(center)[#commutative_diagram]
+ $ 
+]
+
+*Fact*: In $Set$, a square is a pullback iff for every $x in X$ and $y in Y$ with $f(x) = g(y)$, there is a unique $a in P$ such that $p_1(a) = x$ and $p_2(a) = y$. 
+
+#proof[
+  Elements correspond to map from $1 =:T$. Also, given $q_1: T->X$ and $q_2: T->Y$, define $u: T->P$ by $u(t) = "the unique" a in P "such that" p_1(a) = q_1(t)$ and $p_2(a) = q_2(t)$.
+]
+#definition[
+  Given $f: X->Z$ and $z in Z$, the fiber of $f$ (or $X$) over $z$ is 
+  $
+    X_z := fib_f (z) := {x in X | f(x) = z} subset.eq X.
+  $
+]
+#lemma[Two pullbacks lemma][
+  In any category $cC$, given a diagram
+    #align(center)[#commutative-diagram(
+  node((1, 1), $X'$),
+  node((1, 2), $Y'$),
+  node((2, 1), $X$),
+  node((2, 2), $Y$),
+  node((1, 3), $Z'$),
+  node((2, 3), $Z$),
+  arr($X'$, $X$, $p$),
+  arr($Y'$, $Y$, $q$),
+  arr($X$, $Y$, $f$),
+  arr($Y$, $Z$, $g$),
+  arr($X'$, $Y'$, $f'$),
+  arr($Y'$, $Z'$, $g'$),
+  arr($Z'$, $Z$, $r$),
+)]
+#align(center)[#commutative-diagram(
+  node((1, 1), $X'$),
+  node((2, 1), $X$),
+  node((1, 2), $Z'$),
+  node((2, 2), $Z$),
+  arr($X'$, $X$, $p$),
+  arr($X'$, $Z'$, $g'f'$),
+  arr($Z'$, $Z$, $r$),
+  arr($X$, $Z$, $g f$),
+)]
+then
+- if the first and second squares are pullbacks, then so is the third square.
+- if the second and third squares are pullbacks, then so is the first square.
+]
+*Limits*
+
+Products, equalizers, and pullbacks are al instances of limits. Fix an "index category" $I$ (small). A diagram (of shape $I$ in $cC$) is a function $D: I-> cC$. A cone in a diagram $D$ consists of an object $X$ ("vertex") plus maps $f_i: X-> D(i)$
+for $i in I$ such that for each $h: i->j$ in $I$, we have that the diagram below commutes:
+#align(center)[#commutative-diagram(
+  node((1, 1), $X$),
+  node((1, 2), $D(i)$),
+  node((2, 2), $D(j)$),
+  arr($X$, $D(i)$, $f_i$),
+  arr($X$, $D(j)$, $f_j$),
+  arr($D(i)$, $D(j)$, $D(h)$),
+)]
+#colbreak()
+== 09/25/2025
+#definition[
+  - $cC$ has limits of shape $I$ if every diagram $D: I-> cC$ has a limit cone.
+  - $cC$ has all limits if it has limits of shape of $I$ for all small categories $I$.
+  - $cC$ has finite limits if it has limits of shape of $I$ for all finite categories $I$.
+    $I$ is finite if it has finitely many objects and finitely many morphisms.
+]
+
+#proposition[
+  $cC$ has all limits if and only if $cC$ has all products and equalizers.
+]
+#proof[
+  Forward direction is clearly true, as we know that products and equalizers are both limits.
+
+  $
+    lim_I D = "equalizer of" [product_(i in I) D(i) arrows.rr^s_t product_(h: j->k) D(k)]
+  $
+]
+= Duality
+If $cC$ is a category, then $C^op$ is also a category. 
+
+Dictionary:
+- $cC$, $cC^op$
+- $A$, $A^*$
+- $f: A->B$, $f^*: B^*->A^*$
+- isomorphism $f: A->B$ ($exists g: B->A$ such that $f g = id$, $g f= id$). In the opposite category, $f^*: B^* -> A^*$ ($exists g^*: A^* -> B^*$ such that $f^* g^* = id$, $g^* f^* = id$)
+- a terminal object $X$ in $cC$ is an initial object $X^*$ in $cC^op$.
+
+We saw that terminal objects of $cC$ are unique up to unique isomorphism. This means that initial objects of $cC$ are unique up to unique isomorphism. 
+
+This is what we call a "proof by duality": we apply a theorem to $cC^op$ and translate it to $cC$.
+
+*Coproducts*
+
+A diagram is a coproduct diagram if for all $X, j_1: A->X, j_2: B->X$, there is a unique $u: C-> X$ such that $i_1 u = j_1$ and $i_2 u = j_2$.
+#align(center)[#commutative-diagram(
+  node((0, 0), $A$),
+  node((0, 2), $B$),
+  node((1, 1), $C$),
+  node((2, 1), $X$),
+  arr($A$, $C$, $i_1$),
+  arr($B$, $C$, $i_2$),
+  arr($C$, $X$, $exists ! u$),
+  arr($A$, $X$, $j_1$, curve: -20deg),
+  arr($B$, $X$, $j_2$, curve: 20deg),
+)]
+$i_1$, $i_2$ called "inclucsions", $C$ a "coproduct", and $C = A + B$.

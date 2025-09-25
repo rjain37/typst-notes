@@ -109,6 +109,8 @@
 #let cup = $union$
 #let cap = $sect$
 #let mapsto = $|->$
+#let cC = $cal(C)$
+#let cD = $cal(D)$
 
 // SHORTHANDS
 #let angled(..inputs) = {
@@ -141,6 +143,7 @@
 #let Top = math.op("Top")
 #let Cat = math.op("Cat")
 #let List = math.op("List")
+#let fib = math.op("fib")
 
 #let pmod-spacing = state("pmod-spacing", 2em/9)
 
@@ -154,6 +157,22 @@
 }
 
 #let pmod(m) = context h(pmod-spacing.get()) + $(mod med #m)$
+
+// Category Diagrams
+#let commutative_diagram = commutative-diagram(
+  node((0, 0), $T$),
+  node((1, 1), $P$),
+  node((1, 2), $X$),
+  node((2, 1), $Y$),
+  node((2, 2), $Z$),
+  arr($T$, $P$, $exists ! u$, "dashed"),
+  arr($P$, $X$, $p_1$),
+  arr($P$, $Y$, $p_2$, label-pos:right),
+  arr($Y$, $Z$, $g$),
+  arr($X$, $Z$, $f$),
+  arr($T$, $Y$, $q_2$, curve: -25deg, label-pos:right),
+  arr($T$, $X$, $q_1$, curve: 25deg)
+)
 
 // MISC
 #let rule = line(length:100%)
