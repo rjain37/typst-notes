@@ -1,5 +1,6 @@
 #import "@preview/ctheorems:1.1.3": *
 #import "@preview/commute:0.3.0": node, arr, commutative-diagram
+#import "@preview/fletcher:0.5.8" as fletcher: diagram, node, edge
 #show: thmrules
 
 
@@ -159,20 +160,20 @@
 #let pmod(m) = context h(pmod-spacing.get()) + $(mod med #m)$
 
 // Category Diagrams
-#let commutative_diagram = commutative-diagram(
-  node((0, 0), $T$),
-  node((1, 1), $P$),
-  node((1, 2), $X$),
-  node((2, 1), $Y$),
-  node((2, 2), $Z$),
-  arr($T$, $P$, $exists ! u$, "dashed"),
-  arr($P$, $X$, $p_1$),
-  arr($P$, $Y$, $p_2$, label-pos:right),
-  arr($Y$, $Z$, $g$),
-  arr($X$, $Z$, $f$),
-  arr($T$, $Y$, $q_2$, curve: -25deg, label-pos:right),
-  arr($T$, $X$, $q_1$, curve: 25deg)
-)
+// #let commutative_diagram = fletcher.diagram(
+//   node((0, 0), $T$),
+//   node((1, 1), $P$),
+//   node((1, 2), $X$),
+//   node((2, 1), $Y$),
+//   node((2, 2), $Z$),
+//   arr($T$, $P$, $exists ! u$, "dashed"),
+//   arr($P$, $X$, $p_1$),
+//   arr($P$, $Y$, $p_2$, label-pos:right),
+//   arr($Y$, $Z$, $g$),
+//   arr($X$, $Z$, $f$),
+//   arr($T$, $Y$, $q_2$, curve: -25deg, label-pos:right),
+//   arr($T$, $X$, $q_1$, curve: 25deg)
+// )
 
 // MISC
 #let rule = line(length:100%)

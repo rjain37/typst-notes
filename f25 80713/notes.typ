@@ -409,4 +409,8 @@ A diagram is a coproduct diagram if for all $X, j_1: A->X, j_2: B->X$, there is 
   arr($A$, $X$, $j_1$, curve: -20deg),
   arr($B$, $X$, $j_2$, curve: 20deg),
 )]
-$i_1$, $i_2$ called "inclucsions", $C$ a "coproduct", and $C = A + B$.
+$i_1$, $i_2$ called "inclusions", $C$ a "coproduct", and $C = A + B$.
+
+
+== 09/30/2025
+*Colimits*
