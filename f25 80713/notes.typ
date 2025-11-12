@@ -302,10 +302,6 @@ Fact: a diagram in $cal(C)$ $A <-_(p_1) P ->_(p_2) B$ is a product diagram iff i
 == 09/23/2025
 #definition[
   A commutative square is called a pullback if for every $T$, $q_1: T->X$, $q_2: T->Y$ such that $f compose q_1 = g compose q_2$, there is a unique $u: T->P$ such that $p_1 compose u = q_1$ and $p_2 compose u = q_2$.
-
- $
-   #align(center)[#commutative_diagram]
- $ 
 ]
 
 *Fact*: In $Set$, a square is a pullback iff for every $x in X$ and $y in Y$ with $f(x) = g(y)$, there is a unique $a in P$ such that $p_1(a) = x$ and $p_2(a) = y$. 
@@ -352,7 +348,7 @@ then
 ]
 *Limits*
 
-Products, equalizers, and pullbacks are al instances of limits. Fix an "index category" $I$ (small). A diagram (of shape $I$ in $cC$) is a function $D: I-> cC$. A cone in a diagram $D$ consists of an object $X$ ("vertex") plus maps $f_i: X-> D(i)$
+Products, equalizers, and pullbacks are all instances of limits. Fix an "index category" $I$ (small). A diagram (of shape $I$ in $cC$) is a function $D: I-> cC$. A cone in a diagram $D$ consists of an object $X$ ("vertex") plus maps $f_i: X-> D(i)$
 for $i in I$ such that for each $h: i->j$ in $I$, we have that the diagram below commutes:
 #align(center)[#commutative-diagram(
   node((1, 1), $X$),
@@ -414,3 +410,7 @@ $i_1$, $i_2$ called "inclusions", $C$ a "coproduct", and $C = A + B$.
 
 == 09/30/2025
 *Colimits*
+
+After learning about limits, I believe I know everything about colimits.
+
+== 10/02/2025
