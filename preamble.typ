@@ -1,6 +1,6 @@
 #import "@preview/ctheorems:1.1.3": *
 #import "@preview/commute:0.3.0": node, arr, commutative-diagram
-#import "@preview/fletcher:0.5.8" as fletcher: diagram, node, edge
+// #import "@preview/fletcher:0.5.8" as fletcher: diagram, node, edge
 #show: thmrules
 
 
