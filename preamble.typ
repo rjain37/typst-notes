@@ -110,8 +110,15 @@
 #let cup = $union$
 #let cap = $sect$
 #let mapsto = $|->$
+#let iso = $tilde.equiv$
+#let implies = $==>$
+#let iff = $<==>$
+#let to = $->$
+#let from = $<-$
+#let circ = $compose$
 #let cC = $cal(C)$
 #let cD = $cal(D)$
+#let amalg = $⨿$
 
 // SHORTHANDS
 #let angled(..inputs) = {
@@ -145,6 +152,8 @@
 #let Cat = math.op("Cat")
 #let List = math.op("List")
 #let fib = math.op("fib")
+#let Up = math.op("Up")
+#let Down = math.op("Down")
 
 #let pmod-spacing = state("pmod-spacing", 2em/9)
 
